@@ -1,0 +1,1091 @@
+(kicad_sch (version 20260101) (generator "eeschema") (generator_version "10.0")
+  (uuid 22520c57-3879-44e4-b02d-6d256935ed19)
+  (paper "A4")
+  (lib_symbols
+  
+        	(symbol "Regulator_Linear:TLV1117-33"
+    		(pin_names
+    			(offset 0.254)
+    		)
+    		(exclude_from_sim no)
+    		(in_bom yes)
+    		(on_board yes)
+    		(in_pos_files yes)
+    		(duplicate_pin_numbers_are_jumpers no)
+    		(property "Reference" "U"
+    			(at -3.81 3.175 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "Value" "TLV1117-33"
+    			(at 0 3.175 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    				(justify left)
+    			)
+    		)
+    		(property "Footprint" ""
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlv1117.pdf"
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "Description" "800mA Low-Dropout Linear Regulator, 3.3V fixed output, TO-220/TO-252/TO-263/SOT-223"
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "ki_keywords" "linear regulator ldo fixed positive"
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "ki_fp_filters" "SOT?223* TO?263* TO?252* TO?220*"
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(symbol "TLV1117-33_0_1"
+    			(rectangle
+    				(start -5.08 -5.08)
+    				(end 5.08 1.905)
+    				(stroke
+    					(width 0.254)
+    					(type default)
+    				)
+    				(fill
+    					(type background)
+    				)
+    			)
+    		)
+    		(symbol "TLV1117-33_1_1"
+    			(pin power_in line
+    				(at 0 -7.62 90)
+    				(length 2.54)
+    				(name "GND"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "1"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin power_out line
+    				(at 7.62 0 180)
+    				(length 2.54)
+    				(name "VO"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "2"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin power_in line
+    				(at -7.62 0 0)
+    				(length 2.54)
+    				(name "VI"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "3"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    		)
+    		(embedded_fonts no)
+    	)
+  
+        	(symbol "Memory_Flash:W25Q128JVS"
+    		(exclude_from_sim no)
+    		(in_bom yes)
+    		(on_board yes)
+    		(in_pos_files yes)
+    		(duplicate_pin_numbers_are_jumpers no)
+    		(property "Reference" "U"
+    			(at -6.35 11.43 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "Value" "W25Q128JVS"
+    			(at 7.62 11.43 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+    			(at 0 22.86 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "Datasheet" "https://www.winbond.com/resource-files/w25q128jv_dtr%20revc%2003272018%20plus.pdf"
+    			(at 0 25.4 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "Description" "128Mbit / 16MiB Serial Flash Memory, Standard/Dual/Quad SPI, 2.7-3.6V, SOIC-8"
+    			(at 0 27.94 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "ki_keywords" "flash memory SPI QPI DTR"
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "ki_fp_filters" "*SOIC*5.3x5.3mm*P1.27mm*"
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(symbol "W25Q128JVS_0_1"
+    			(rectangle
+    				(start -7.62 10.16)
+    				(end 10.16 -10.16)
+    				(stroke
+    					(width 0.254)
+    					(type default)
+    				)
+    				(fill
+    					(type background)
+    				)
+    			)
+    		)
+    		(symbol "W25Q128JVS_1_1"
+    			(pin input line
+    				(at -10.16 7.62 0)
+    				(length 2.54)
+    				(name "~{CS}"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "1"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin bidirectional line
+    				(at -10.16 0 0)
+    				(length 2.54)
+    				(name "DO/IO_{1}"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "2"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin bidirectional line
+    				(at -10.16 -2.54 0)
+    				(length 2.54)
+    				(name "~{WP}/IO_{2}"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "3"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin power_in line
+    				(at 0 -12.7 90)
+    				(length 2.54)
+    				(name "GND"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "4"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin bidirectional line
+    				(at -10.16 2.54 0)
+    				(length 2.54)
+    				(name "DI/IO_{0}"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "5"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin input line
+    				(at -10.16 5.08 0)
+    				(length 2.54)
+    				(name "CLK"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "6"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin bidirectional line
+    				(at -10.16 -5.08 0)
+    				(length 2.54)
+    				(name "~{HOLD}/~{RESET}/IO_{3}"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "7"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin power_in line
+    				(at 0 12.7 270)
+    				(length 2.54)
+    				(name "VCC"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "8"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    		)
+    		(embedded_fonts no)
+    	)
+  
+        	(symbol "Power_Protection:USBLC6-2SC6"
+    		(pin_names
+    			(hide yes)
+    		)
+    		(exclude_from_sim no)
+    		(in_bom yes)
+    		(on_board yes)
+    		(in_pos_files yes)
+    		(duplicate_pin_numbers_are_jumpers no)
+    		(property "Reference" "U"
+    			(at 0.635 5.715 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    				(justify left)
+    			)
+    		)
+    		(property "Value" "USBLC6-2SC6"
+    			(at 0.635 3.81 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    				(justify left)
+    			)
+    		)
+    		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+    			(at 1.27 -6.35 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    					(italic yes)
+    				)
+    				(justify left)
+    			)
+    		)
+    		(property "Datasheet" "https://www.st.com/resource/en/datasheet/usblc6-2.pdf"
+    			(at 1.27 -8.255 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    				(justify left)
+    			)
+    		)
+    		(property "Description" "Very low capacitance ESD protection diode, 2 data-line, SOT-23-6"
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "ki_keywords" "usb ethernet video"
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(property "ki_fp_filters" "SOT?23*"
+    			(at 0 0 0)
+    			(show_name no)
+    			(do_not_autoplace no)
+    			(hide yes)
+    			(effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    		)
+    		(symbol "USBLC6-2SC6_0_0"
+    			(circle
+    				(center -1.524 0)
+    				(radius 0.0001)
+    				(stroke
+    					(width 0.508)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(circle
+    				(center -0.508 2.032)
+    				(radius 0.0001)
+    				(stroke
+    					(width 0.508)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(circle
+    				(center -0.508 -4.572)
+    				(radius 0.0001)
+    				(stroke
+    					(width 0.508)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(circle
+    				(center 0.508 2.032)
+    				(radius 0.0001)
+    				(stroke
+    					(width 0.508)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(circle
+    				(center 0.508 -4.572)
+    				(radius 0.0001)
+    				(stroke
+    					(width 0.508)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(circle
+    				(center 1.524 -2.54)
+    				(radius 0.0001)
+    				(stroke
+    					(width 0.508)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    		)
+    		(symbol "USBLC6-2SC6_0_1"
+    			(polyline
+    				(pts
+    					(xy -2.54 0) (xy 2.54 0)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy -2.54 -2.54) (xy 2.54 -2.54)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy -2.032 0.508) (xy -1.016 0.508) (xy -1.524 1.524) (xy -2.032 0.508)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy -2.032 -3.048) (xy -1.016 -3.048)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy -1.016 1.524) (xy -2.032 1.524)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy -1.016 -4.064) (xy -2.032 -4.064) (xy -1.524 -3.048) (xy -1.016 -4.064)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy -0.508 -1.143) (xy -0.508 -0.762) (xy 0.508 -0.762)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy 0 2.54) (xy -0.508 2.032) (xy 0.508 2.032) (xy 0 1.524) (xy 0 -4.064) (xy -0.508 -4.572) (xy 0.508 -4.572)
+    					(xy 0 -5.08)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy 0.508 -1.778) (xy -0.508 -1.778) (xy 0 -0.762) (xy 0.508 -1.778)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy 1.016 1.524) (xy 2.032 1.524)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy 1.016 -3.048) (xy 2.032 -3.048)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy 2.032 0.508) (xy 1.016 0.508) (xy 1.524 1.524) (xy 2.032 0.508)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy 2.032 -4.064) (xy 1.016 -4.064) (xy 1.524 -3.048) (xy 2.032 -4.064)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    		)
+    		(symbol "USBLC6-2SC6_1_1"
+    			(rectangle
+    				(start -2.54 2.794)
+    				(end 2.54 -5.334)
+    				(stroke
+    					(width 0.254)
+    					(type default)
+    				)
+    				(fill
+    					(type background)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy -0.508 2.032) (xy -1.524 2.032) (xy -1.524 -4.572) (xy -0.508 -4.572)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(polyline
+    				(pts
+    					(xy 0.508 -4.572) (xy 1.524 -4.572) (xy 1.524 2.032) (xy 0.508 2.032)
+    				)
+    				(stroke
+    					(width 0)
+    					(type default)
+    				)
+    				(fill
+    					(type none)
+    				)
+    			)
+    			(pin passive line
+    				(at -5.08 0 0)
+    				(length 2.54)
+    				(name "I/O1"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "1"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin passive line
+    				(at 0 -7.62 90)
+    				(length 2.54)
+    				(name "GND"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "2"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin passive line
+    				(at -5.08 -2.54 0)
+    				(length 2.54)
+    				(name "I/O2"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "3"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin passive line
+    				(at 5.08 -2.54 180)
+    				(length 2.54)
+    				(name "I/O2"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "4"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin passive line
+    				(at 0 5.08 270)
+    				(length 2.54)
+    				(name "VBUS"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "5"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    			(pin passive line
+    				(at 5.08 0 180)
+    				(length 2.54)
+    				(name "I/O1"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    				(number "6"
+    					(effects
+    						(font
+    							(size 1.27 1.27)
+    						)
+    					)
+    				)
+    			)
+    		)
+    		(embedded_fonts no)
+    	)
+  )
+    (symbol (lib_id "Regulator_Linear:TLV1117-33") (at 0 0 0) (unit 1)
+    (body_style 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (dnp no)
+    (uuid "1204419d-e5b9-47bc-a12e-ea1c2dd935b6")
+    (property "Reference" "U8"
+      (at 0.0 -2.54 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (property "Value" "TLV1117-33IDCYR"
+      (at 0.0 10.16 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    				(justify left)
+    			)
+    )
+    (property "Footprint" ""
+      (at 0 0 0)
+      (hide yes)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlv1117.pdf"
+      (at 0 0 0)
+      (hide yes)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (property "Description" "800mA Low-Dropout Linear Regulator, 3.3V fixed output, TO-220/TO-252/TO-263/SOT-223"
+      (at 0 0 0)
+      (hide yes)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (pin "1" (uuid "6a3c4d68-4c03-442b-9e79-583ab163ecd3"))
+    (pin "2" (uuid "7117a4fa-f387-4c6b-b6ec-880e4cadd968"))
+    (pin "3" (uuid "215341d9-0662-4e3e-8b7d-2bb579f61359"))
+    (instances
+      (project "fc_f405"
+        (path "/22520c57-3879-44e4-b02d-6d256935ed19"
+          (reference "U8")
+          (unit 1)
+        )
+      )
+    )
+  )
+    (symbol (lib_id "Memory_Flash:W25Q128JVS") (at 0 0 0) (unit 1)
+    (body_style 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (dnp no)
+    (uuid "14f310e1-5ee2-4c3e-bf9f-98f45d1e09c5")
+    (property "Reference" "U5"
+      (at 0.0 -2.54 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (property "Value" "W25Q128JVSIQ"
+      (at 0.0 2.54 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
+      (at 0 22.86 0)
+      (hide yes)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (property "Datasheet" "https://www.winbond.com/resource-files/w25q128jv_dtr%20revc%2003272018%20plus.pdf"
+      (at 0 25.4 0)
+      (hide yes)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (property "Description" "128Mbit / 16MiB Serial Flash Memory, Standard/Dual/Quad SPI, 2.7-3.6V, SOIC-8"
+      (at 0 27.94 0)
+      (hide yes)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (pin "1" (uuid "c1dba919-4901-44ac-90be-9cef59b000bf"))
+    (pin "2" (uuid "78b05f07-e7b6-4fb1-b30e-12ee55977a05"))
+    (pin "3" (uuid "8bd6c6a5-8984-4a86-97b7-cb4a9ade8acc"))
+    (pin "4" (uuid "0780cba7-37b2-4863-a56b-4c067f29976b"))
+    (pin "5" (uuid "7ecd6907-1b91-4b4f-ae44-ff9e9c3aa66e"))
+    (pin "6" (uuid "92624041-4d04-4970-b601-0843ff2ff5d6"))
+    (pin "7" (uuid "f9a3e889-804a-4418-8445-a620557514bc"))
+    (pin "8" (uuid "f9030c2b-fafd-4fd8-a748-6b88d58b8e05"))
+    (instances
+      (project "fc_f405"
+        (path "/22520c57-3879-44e4-b02d-6d256935ed19"
+          (reference "U5")
+          (unit 1)
+        )
+      )
+    )
+  )
+    (symbol (lib_id "Power_Protection:USBLC6-2SC6") (at 0 0 0) (unit 1)
+    (body_style 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (dnp no)
+    (uuid "3f787a34-1904-44ec-bfe3-6b2058a40e98")
+    (property "Reference" "U9"
+      (at 0.0 -2.54 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    				(justify left)
+    			)
+    )
+    (property "Value" "USBLC6-2SC6"
+      (at 0.0 2.54 0)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    				(justify left)
+    			)
+    )
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+      (at 1.27 -6.35 0)
+      (hide yes)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    					(italic yes)
+    				)
+    				(justify left)
+    			)
+    )
+    (property "Datasheet" "https://www.st.com/resource/en/datasheet/usblc6-2.pdf"
+      (at 1.27 -8.255 0)
+      (hide yes)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    				(justify left)
+    			)
+    )
+    (property "Description" "Very low capacitance ESD protection diode, 2 data-line, SOT-23-6"
+      (at 0 0 0)
+      (hide yes)
+      (show_name no)
+      (do_not_autoplace no)
+      (effects
+    				(font
+    					(size 1.27 1.27)
+    				)
+    			)
+    )
+    (pin "1" (uuid "a8daf9f3-cbbb-4a27-8847-39b4a4bd2c9e"))
+    (pin "2" (uuid "cdd743a1-2e4e-4eae-af04-678db8c083af"))
+    (pin "3" (uuid "a176137d-fb73-4224-839f-e889e9f7ecf3"))
+    (pin "4" (uuid "5ed7ca04-a82b-4421-aca8-a13cc50428bc"))
+    (pin "5" (uuid "8334e711-22f1-471f-9224-0b540cc83215"))
+    (pin "6" (uuid "f21fa39c-794a-4f97-b975-922ad4a75359"))
+    (instances
+      (project "fc_f405"
+        (path "/22520c57-3879-44e4-b02d-6d256935ed19"
+          (reference "U9")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)

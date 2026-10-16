@@ -1,0 +1,52 @@
+==============================================================================
+TI SLVSBB4G Rev G method, Eq 44-51, applied to the 9 V rail
+VOUT=9.0 V  IOUT=1.5 A  L=22 uH  fsw=600 kHz  gmps=12 A/V  gmea=350 uA/V
+==============================================================================
+
+-- COUT = 58.3 uF  (TI's own derated 2x47uF figure), RESR = 2.5 mOhm --
+  Eq44 fp(mod) =    455.0 Hz
+  Eq45 fz(mod) =   1092.0 kHz
+  Eq46 fco     =    22.29 kHz   (geometric mean of pole & ESR zero)
+  Eq47 fco     =    11.68 kHz   (geometric mean of pole & fsw/2)
+  -> use lower :    11.68 kHz
+  Eq48 R4      =   11.463 kOhm
+  Eq49 C5      =    30515 pF
+  Eq50 C8      =     12.7 pF
+  Eq51 C8      =     46.3 pF  -> use larger = 46.3 pF
+
+==============================================================================
+Rounding to standard values
+==============================================================================
+  R4 = 11.463 k -> E96 standard  11.5 kOhm  (+0.3%)
+  C5 = 30515 pF -> E6  standard  33 nF      (+8.1%, moves zero DOWN to 419 Hz, i.e. below fp(mod) -> more phase margin)
+  C8 = 46.3 pF  -> E24 standard  47 pF      (+1.5%)
+
+==============================================================================
+VERIFICATION - closed-loop crossover & phase margin vs COUT derating and load
+(COUT nominal 2 x 47 uF = 94 uF; sweep covers 0% .. 68% derating)
+==============================================================================
+ COUT(uF)  derate |           0.15A           0.75A            1.5A            3.5A
+                  |     fc kHz / PM     fc kHz / PM     fc kHz / PM     fc kHz / PM
+------------------------------------------------------------------------------
+     30.0     68% |   22.68/ 85.4deg   22.68/ 86.3deg   22.67/ 87.4deg   22.59/ 90.4deg
+     40.0     57% |   17.04/ 86.1deg   17.03/ 87.0deg   17.02/ 88.1deg   16.97/ 91.1deg
+     47.0     50% |   14.51/ 86.4deg   14.50/ 87.3deg   14.50/ 88.4deg   14.45/ 91.4deg
+     58.3     38% |   11.70/ 86.5deg   11.70/ 87.4deg   11.69/ 88.5deg   11.65/ 91.5deg
+     70.0     26% |    9.75/ 86.5deg    9.75/ 87.4deg    9.74/ 88.5deg    9.71/ 91.5deg
+     80.0     15% |    8.54/ 86.4deg    8.53/ 87.3deg    8.53/ 88.4deg    8.50/ 91.3deg
+     94.0      0% |    7.27/ 86.1deg    7.27/ 87.0deg    7.26/ 88.1deg    7.24/ 91.1deg
+------------------------------------------------------------------------------
+WORST-CASE PHASE MARGIN across the entire sweep: 85.4 deg
+Target: >45 deg is the usual stability criterion; >60 deg is comfortable.
+
+==============================================================================
+OUTPUT CAPACITOR SIZING CHECK - TI Eq 32/33/34/35 for the 9 V rail
+==============================================================================
+  Inductor ripple dI_L (plan sec 2.6)   = 0.447 A  (30% of 1.5 A load)
+  Eq32 transient  0->1.5 A, dV=4%       =  13.89 uF
+  Eq33 overshoot  1.5->0 A, dV=4%       =   7.49 uF
+  Eq34 ripple     VORIPPLE = 25 mV      =   3.72 uF
+  Eq35 max ESR    VORIPPLE = 25 mV      =   56.0 mOhm
+  --> governing minimum = 13.89 uF derated
+  --> 2 x 47 uF even at 68% derating = 30 uF = 2.2x the minimum  OK
+  --> chosen RESR 2.5 mOhm (2 x 5 mOhm 1210 MLCC) is 22x under the Eq35 limit  OK

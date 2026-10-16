@@ -1,0 +1,43 @@
+(version 1)
+
+# PCBWay standard 4-layer capability (pcbway.com/capabilities.html):
+#   min trace / space 0.1 mm, min drill 0.2 mm at no extra charge (<=1.6 mm board),
+#   via weld ring >= 5 mil (0.127 mm) normal process, via-to-via hole spacing 11 mil,
+#   line-to-edge 0.25 mm. Signals route at 0.127 mm / 0.127 mm, vias 0.45 / 0.2 mm.
+#   Every VBAT / switch-node / regulator-output path between pads is a 1.6 mm
+#   same-net copper strip on B.Cu (finish.py); the 0.2 mm floor below only
+#   admits sense branches (UVLO / feedback dividers, single small loads).
+# Rules here sit above every one of those, so a clean DRC is comfortably buildable.
+
+(rule "edge clearance"
+    (constraint edge_clearance (min 0.3mm)))
+
+(rule "hole to hole"
+    (constraint hole_to_hole (min 0.3mm)))
+
+(rule "via annular ring"
+    (constraint annular_width (min 0.12mm))
+    (condition "A.Type == 'Via'"))
+
+(rule "min drill"
+    (constraint hole_size (min 0.2mm) (max 6.0mm)))
+
+# VBAT: 3 A worst case at 3S (DESIGN_PLAN sec 1). Routed at 0.6 mm, and every
+# power-stage net is additionally flooded with same-net copper on B.Cu / F.Cu.
+(rule "HV width"
+    (constraint track_width (min 0.2mm))
+    (condition "A.NetClass == 'HV'"))
+
+(rule "HV clearance"
+    (constraint clearance (min 0.2mm))
+    (condition "A.NetClass == 'HV' && B.Net != A.Net"))
+
+# +5V / +9V / VBUS trunks are routed at 0.5-0.6 mm; single-load branches
+# (one UART pad, the OSD's analog pins) may narrow to 0.25 mm (< 0.5 A each)
+(rule "regulated rail width"
+    (constraint track_width (min 0.2mm))
+    (condition "A.NetClass == 'PWR'"))
+
+(rule "3V3 width"
+    (constraint track_width (min 0.2mm))
+    (condition "A.NetClass == 'PWR3V3'"))

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "fc_f405")(type "KiCad")(uri "${KIPRJMOD}/lib/fc_f405.kicad_sym")(options "")(descr "Project symbols: ICM-42688-P, BMP388, AT7456E, CJAE10P06, D_TVS_Uni"))
+)

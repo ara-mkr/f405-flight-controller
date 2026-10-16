@@ -1,0 +1,87 @@
+ERC report (2026-08-27T09:41:31, Encoding UTF8)
+Report includes: Errors, Warnings
+
+***** Sheet /
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(39.37 mm, 44.45 mm): Symbol J1 [Conn_01x02]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(74.93 mm, 54.61 mm): Symbol Q1 [CJAE10P06]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(149.86 mm, 345.44 mm): Symbol J2 [Conn_01x04]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(149.86 mm, 374.65 mm): Symbol J3 [Conn_01x02]
+[footprint_link_issues]: Footprint 'SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3.0mm' not found in library 'Package_SO'
+    ; warning
+    @(214.63 mm, 59.69 mm): Symbol U6 [TPS54360DDA]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(265.43 mm, 49.53 mm): Symbol L1 [L]
+[pin_to_pin]: Pins of type Bidirectional and Power output are connected
+    ; warning
+    @(289.56 mm, 377.19 mm): Symbol U5 Pin 3 [~{WP}/IO_{2}, Bidirectional, Line]
+    @(668.02 mm, 54.61 mm): Symbol U8 Pin 2 [VO, Power output, Line]
+[pin_to_pin]: Pins of type Bidirectional and Power output are connected
+    ; warning
+    @(289.56 mm, 379.73 mm): Symbol U5 Pin 7 [~{HOLD}/~{RESET}/IO_{3}, Bidirectional, Line]
+    @(668.02 mm, 54.61 mm): Symbol U8 Pin 2 [VO, Power output, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(299.72 mm, 229.87 mm): Symbol U2 [ICM-42688-P]
+[footprint_link_issues]: Footprint 'SOIC-8_5.23x5.23mm_P1.27mm' not found in library 'Package_SO'
+    ; warning
+    @(299.72 mm, 374.65 mm): Symbol U5 [W25Q128JVS]
+[pin_to_pin]: Pins of type Bidirectional and Power output are connected
+    ; warning
+    @(377.19 mm, 229.87 mm): Symbol U3 Pin 5 [SDO, Bidirectional, Line]
+    @(54.61 mm, 80.01 mm): Symbol FLAG2 Pin 1 [Power output, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(389.89 mm, 229.87 mm): Symbol U3 [BMP388]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(389.89 mm, 299.72 mm): Symbol J4 [Conn_01x04]
+[footprint_link_issues]: Footprint 'SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3.0mm' not found in library 'Package_SO'
+    ; warning
+    @(425.45 mm, 59.69 mm): Symbol U7 [TPS54360DDA]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(474.98 mm, 49.53 mm): Symbol L2 [L]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(585.47 mm, 464.82 mm): Symbol J7 [Conn_01x02]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(585.47 mm, 505.46 mm): Symbol J8 [Conn_01x03]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(650.24 mm, 464.82 mm): Symbol J9 [Conn_01x06]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(699.77 mm, 464.82 mm): Symbol J10 [Conn_01x04]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(699.77 mm, 524.51 mm): Symbol J13 [Conn_01x04]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(740.41 mm, 464.82 mm): Symbol J11 [Conn_01x04]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(740.41 mm, 524.51 mm): Symbol J14 [Conn_01x04]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(779.78 mm, 464.82 mm): Symbol J12 [Conn_01x04]
+[footprint_link_issues]: The current configuration does not include the footprint library 'fc_f405'
+    ; warning
+    @(779.78 mm, 524.51 mm): Symbol J15 [Conn_01x05]
+
+ ** ERC messages: 24  Errors 0  Warnings 24
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

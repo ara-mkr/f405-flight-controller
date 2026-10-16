@@ -1,0 +1,1560 @@
+       杭州中科微电子有限公司
+
+
+                                                         集成了 EEPROM 的
+                                                  单通道、单色随屏显示器
+
+                                    概述                                            特性
+    AT7456E 是一款集成了 EEPROM 的单通道、单色随屏           512 个用户定义字符或图形存储于 EEPROM
+显示发生器，集成了视频驱动器、同步分离器、视频分离开                    字符大小为 12×18 象素
+关以及 EEPROM，提高了系统的集成度，有效降低了系统成                 闪烁、反色和背景控制字符
+本。                                            可逐行设置亮度
+    AT7456E 采用符合 NTSC 和 PAL 制式的 512 个用户可      最多显示 16 行×30 列字符
+编程字符，适合于全球市场。                                 视频驱动器输出带有衰减补偿
+    AT7456E 能够方便地以任意字符、尺寸显示各种信息，              LOS、 VSYNC 、 HSYNC       和时钟输出
+例如公司标识、常用图形、时间、日期等。                             (仅 AT7456E)
+    AT7456E 预先装载了 512 个字符和图形，并可以通过            内置同步发生器
+SPI 兼容串行接口进行在线编程。                             可外部输入复合同步信号(仅 AT7456E)
+    AT7456E 提供 28 引脚的 HTSSOP 封装以及 16 引脚的      兼容于 NTSC 和 PAL
+LGA 封装，工作温度范围（-40℃~+85℃）。                     SPI 兼容串行接口
+                                              出厂时带有预先编程的字符组
+
+
+                                    应用                                       定购信息
+    安全监控系统                                     AT7456E          HTSSOP28         中文
+    安全监控摄像机                                    AT7456ELAH       LGA16
+    工业监控
+    室内娱乐系统
+    手持测量仪器
+    消费类电子
+
+
+    注：AT7456E 兼容 MAX7456，但应用程序需做一些调整，具体见应用信息一节（Page35）。
+
+
+                                                                    电路功能结构框图
+
+
+
+
+1                                                                 AT7456E-S402-V1.1
+             杭州中科微电子有限公司
+
+极限工作条件：
+AVDD to AGND ........................................................-0.3V to +6V   CLKIN, CLKOUT, XFB to DGND ............-0.3V to (VDVDD + 0.3V)
+DVDD to DGND........................................................-0.3V to +6V    SDIN, SCLK,      CS , SDOUT to DGND........-0.3V to (VDVDD + 0.3V)
+PVDD to PGND.........................................................-0.3V to +6V   Maximum Continuous Current into V OUT ........................±100mA
+AGND to DGND.....................................................-0.3V to +0.3V     Continuous Power Dissipation (TA = +70°C)
+AGND to PGND.....................................................-0.3V to +0.3V     28-Pin TSSOP (derate 27mW/°C above +70°C).......2162mW*
+DGND to PGND.....................................................-0.3V to +0.3V     Operating Temperature Range ...........................-40°C to +85°C
+VIN, VOUT, SAG to AGND......................-0.3V to (V AVDD + 0.3V)                Junction Temperature......................................................+150°C
+
+HSYNC , VSYNC , LOS to AGND .........................-0.3V to +6V                   Storage Temperature Range .............................-60°C to +150°C
+
+RESET to AGND .....................................-0.3V to (VAVDD + 0.3V)          Lead Temperature (soldering, 10s) .................................+300°C
+
+
+电特性参数：
+(VAVDD = +3.15V to +5.25V, VDVDD = +3.15V to +5.25V, VPVDD = +3.15V to +5.25V, TA = TMIN to TMAX. Typical values are at VAVDD= VDVDD = VPVDD
+= +5V, TA = +25°C, unless otherwise noted.) (Note 1)
+             PARAMETER                       SYMBOL                           CONDITIONS                          MIN          TYP           MAX        UNITS
+
+    POWER SUPPLIES
+
+    Analog Supply Voltage                     VAVDD                                                               3.15             5         5.25          V
+
+    Digital Supply Voltage                    VDVDD                                                               3.15             5         5.25          V
+
+    Driver Supply Voltage                      VPVDD                                                              3.15             5         5.25          V
+
+                                                             VIN= 1VP-P(100% white flat field signal),
+    Analog Supply Current                      IAVDD                                                            2.0               2.2         2.5         mA
+                                                             VOUT load, RL= 150Ω
+
+                                                             VIN= 1VP-P(100% white flat field signal),
+    Digital Supply Current                     IDVDD                                                            16             43.1           60          mA
+                                                             VOUT load, RL= 150Ω
+
+                                                             VIN= 1VP-P(100% white flat field signal),
+    Driver Supply Current                      IPVDD                                                                 4.0          6.0         10          mA
+                                                             VOUT load, RL= 150Ω
+
+    NONVOLATILE MEMORY
+
+    Data Retention                                           TA= +25°C                                                            100                    Years
+
+    Endurance                                                TA= +25°C                                                       100,000                     Stores
+
+    DIGITAL INPUTS ( CS , SDIN,             RESET , SCLK)
+    Input High Voltage                           VIH                                                                 2.0           2.1                     V
+
+    Input Low Voltage                            VIL                                                                              1.4         0.8          V
+
+    Input Hysteresis                            VHYS                                                                              50                      mV
+
+    Input Leakage Current                                    VIN= 0 or VDVDD                                                                  ±10          uA
+
+    Input Capacitance                            CIN                                                                               5                       pF
+
+    DIGITAL OUTPUTS (SDOUT, CLKOUT,                    HSYNC, VSYNC , LOS)
+    Output High Voltage                         VOH          ISOURCE= 4mA (SDOUT, CLKOUT)                            2.4       4.88                        V
+
+    Output Low Voltage                          VOL          ISINK= 4mA                                                        0.16          0.45          V
+
+    Tri-State Leakage Current                                SDOUT, CS = VDVDD                                                                ±10          uA
+
+    CLOCK INPUT (CLKIN)
+
+    Clock Frequency                                                                                                          27                           MHz
+
+    Clock-Pulse High                                                                                            14           18.4                          ns
+
+    Clock-Pulse Low                                                                                             14           18.8                          ns
+
+    Input High Voltage                                                                                          0.65 x VDVDD                               V
+
+    Input Low Voltage                                                                                                                   0.3 x VDVDD        V
+
+
+2                                                                                                                                  AT7456E-S402-V1.1
+              杭州中科微电子有限公司
+
+             PARAMETER               SYMBOL                    CONDITIONS                   MIN     TYP        MAX      UNITS
+
+    Input Leakage Current                     VIN= 0V or VDVDD                                     ±5           ±50       uA
+
+    CLOCK OUTPUT (CLKOUT)
+
+    Duty Cycle                                5pF and 10kΩto DGND                           40      51.6        60         %
+
+    Rise Time                                 5pF and 10kΩto DGND                                       3.2                ns
+
+    Fall Time                                 5pF and 10kΩto DGND                                       3.6                ns
+
+    VIDEO CHARACTERISTICS
+
+                                              VAVDD= VDVDD= VPVDD = 5V; VIN= 1VP-P,
+    DC Power-Supply Rejection                                                                           40                dB
+                                              measured at VOUT
+
+                                              VAVDD= VDVDD= VPVDD = 5V; VIN= 1VP-P,
+    AC Power-Supply Rejection                 measured at VOUT; f = 5MHz; power-supply                  30                dB
+                                              ripple = 0.2VP-P
+
+    Short-Circuit Current                     VOUT to PGND                                          200         230       mA
+
+    Line-Time Distortion              LTD     Figures 1a, 1b                                                    0.5        %
+
+    Output Impedance                  ZOUT    Figures 1a, 1b                                        0.22                   Ω
+
+    Gain                                      Figures 1a, 1b                                1.89        2.0     2.11      V/V
+
+    Black Level                               At VOUT, Figures 1a, 1b                                   1.26 AGND+1.5      V
+
+    Input-Voltage Operating Range      VIN    Figures 1a, 3 (Note 2)                        0.5                 1.2      VP-P
+
+    Input-Voltage Sync Detection
+                                      VINSD   Figures 1a, 3 (Note 3)                        0.5                 2.0      VP-P
+    Range
+
+    Maximum Output-Voltage Swing      VOUT    Figures 1a, 1b                                2.4     2.66                 VP-P
+
+    Output-Voltage Sync Tip Level                                                                       0.7                V
+
+    Large Signal Bandwidth (0.2dB)     BW     VOUT= 2VP-P, Figures 1a, 1b                               6                MHz
+
+    VIN to VOUT Delay                                                                                   20                 ns
+
+    Differential Gain                  DG                                                               0.5                %
+
+    Differential Phase                 DP                                                               0.5             Degrees
+
+                                              VOUT 100% white level with respect to black
+    OSD White Level                                                                         1.25    1.33        1.45       V
+                                              level
+
+    Horizontal Pixel Jitter                   Between consecutive horizontal lines                      24                 ns
+
+    Video Clamp Settling Time                                                                           32               Lines
+
+    OSD CHARACTERISTICS
+
+                                              OSD insertion mux register OSDM[5,4,3] =
+    OSD Rise Time                                                                                       68                 ns
+                                              011b
+
+                                              OSD insertion mux register OSDM[5,4,3] =
+    OSD Fall Time                                                                                       68                 ns
+                                              011b
+
+                                              OSD insertion mux register OSDM[2,1,0] =
+    OSD Insertion Mux Switch Time                                                                   110                    ns
+                                              011b
+
+
+
+
+3                                                                                                       AT7456E-S402-V1.1
+            杭州中科微电子有限公司
+
+时间特性参数：
+(VAVDD = +3.15V to +5.25V, VDVDD = +3.15V to +5.25V, VPVDD = +3.15V to +5.25V, TA = TMIN to TMAX. Typical values are at VAVDD= VDVDD = VPVDD
+= +5V, TA = +25°C, unless otherwise noted.) (Note 1)
+
+                 PARAMETER                 SYMBOL                   CONDITIONS                     MIN        TYP       MAX       UNITS
+
+    SPI TIMING
+
+    SCLK Period                                 tCP                                                 100                             ns
+
+    SCLK Pulse-Width High                       tCH                                                  40                             ns
+
+    SCLK Pulse-Width Low                        tCL                                                  40                             ns
+
+    CS Fall to SCLK Rise Setup                 tCSS0                                                 30                             ns
+
+    CS Fall After SCLK Rise Hold               tCSH0                                                 0                              ns
+
+    CS Rise to SCLK Setup                      tCSS1                                                 30                             ns
+
+    CS Rise After SCLK Hold                    tCSH1                                                 0                              ns
+
+    CS Pulse-Width High                        tCSW                                                 100                             ns
+
+    SDIN to SCLK Setup                          tDS                                                  30                             ns
+
+    SDIN to SCLK Hold                           tDH                                                  0                              ns
+
+    SDOUT Valid Before SCLK                    tDO1     20pF to ground                               25                             ns
+
+    SDOUT Valid After SCLK                     tDO2     20pF to ground                               0                              ns
+
+    CS High to SDOUT High Impedance            tDO3     20pF to ground                              300                             ns
+
+    CS Low to SDOUT Logic Level                tDO4     20pF to ground                               20                             ns
+
+    HSYNC , VSYNC , AND LOS TIMING
+    LOS, VSYNC       ,   HSYNC
+                                               tDOV     20pF to ground                                         30                   ns
+    Valid before CLKOUT Rising Edge
+
+    VOUT Sync to VSYNC       Falling                    NTSC external sync mode, Figure 4                     375
+                                           tVOUT-VSF                                                                                ns
+    Edge Delay                                          PAL external sync mode, Figure 6                      400
+
+    VOUT Sync to VSYNC       Rising                     NTSC external sync mode, Figure 4                     400                   ns
+                                           tVOUT-VSR
+    Edge Delay                                          PAL external sync mode, Figure 6                      425
+
+    VSYNC Falling Edge to VOUT                          NTSC internal sync mode, Figure 5                      40                   ns
+                                           tVSF-VOUT
+    Sync Delay                                          PAL internal sync mode, Figure 7                       45
+
+    VSYNC Rising Edge to VOUT Sync                      NTSC internal sync mode, Figure 5                      32                   ns
+                                           tVSR-VOUT
+    Delay                                               PAL internal sync mode, Figure 7                       30
+
+    VOUT Sync to   HSYNC Falling                        NTSC and PAL external sync mode,
+                                           tVOUT-HSF                                                          310                   ns
+    Edge Delay                                          Figure 8
+
+    VOUT Sync to   HSYNC Rising                         NTSC and PAL external sync mode,
+                                           tVOUT-HSR                                                          325                   ns
+    Edge Delay                                          Figure 8
+
+    HSYNC Falling Edge to VOUT                          NTSC and PAL internal sync mode,
+                                           tHSF-VOUT                                                          115                   ns
+    Sync Delay                                          Figure 9
+
+    HSYNC Rising Edge to VOUT                           NTSC and PAL internal sync mode,
+                                           tHSR-VOUT                                                          115                   ns
+    Sync Delay                                          Figure 9
+
+    All Supplies High to CS Low                tPUD     Power-up delay                                         50                   ms
+
+    NVM Write Busy                             tNVW     27MHz CLK                                            3.4/4.2                ms
+
+
+
+
+4                                                                                                              AT7456E-S402-V1.1
+          杭州中科微电子有限公司
+
+Note 1: See the standard test circuits of Figure 1. RL = 75 , unless otherwise specified. All digital input signals are timed from a voltage
+level of (VIH + VIL) / 2. All parameters are tested at TA = +85°C and values through temperature range are guaranteed by design.
+Note 2: The input-voltage operating range is the input range over which the output signal parameters are guaranteed (Figure 3).
+Note 3: The input-voltage sync detection range is the input composite video range over which an input sync signal is properly detected and
+the OSD signal appears at VOUT. However, the output voltage specifications are not guaranteed for input signals exceeding the maximum
+specified in the input operating voltage range (Figure 3).
+
+
+
+
+                                                             图 1. 标准测试电路
+
+
+
+
+                                                             图 2. 典型工作电路
+5                                                                                                                  AT7456E-S402-V1.1
+            杭州中科微电子有限公司
+
+
+
+
+引脚说明：
+
+            TSSOP28   LGA16
+    名称                                                   功能
+              引脚      引脚
+
+              1, 2,
+    N.C.     13–16,     -     不连接，内部悬空
+             27, 28
+    DVDD       3        2     数字电源输入，接0.1uF旁路电容到DGND。
+
+    DGND       4        1     数字地
+
+                              晶振连接1，在CLKIN和XFB之间连接一个并联晶体管振荡器，或使用27MHz系统参考时钟直接驱动
+    CLKIN      5        3
+                              CLKIN。
+
+                              晶振连接2，在CLKIN和XFB之间连接一个并联晶体管振荡器，如果使用27MHz系统参考时钟直接驱动
+    XFB        6        4     CLKIN，
+                              XFB悬空。
+
+CLKOUT         7        -     时钟输出，27MHz逻辑电平输出的系统时钟。
+
+    CS         8        5     低电平有效片选输入，当 CS 为高电平时，SDOUT变为高祖抗。
+    SDIN       9        6     串行数据输入，数据在SCLK上升沿读入。
+
+    SCLK       10       7     串行时钟输入，为数据输入到SDIN和从SDOUT输出提供时钟，占空比必须在40％到60％之间。
+
+SDOUT          11       8     串行数据输出，数据在SCLK下降沿读出。当 CS 为高电平时，变为高祖抗。
+
+                              同步丢失输出（开漏）。当VIN同步脉冲丢失32个连续周期时，LOS变为高电平。当接收到32个连续有
+    LOS        12       -
+                              效同步脉冲时，LOS变为低电平。通过1KΩ上拉电阻连接至DVDD或另一个符合接收器件的电源正极。
+
+
+SYNC_IN        13       -     外部复合同步信号输入
+
+                              场同步输出（开漏）。视频输入场同步期间， VSYNC变为低电平。 VSYNC可以从VIN恢复，也
+VSYNC          17       -     可以在内同步模式下内部产生。通过1KΩ上拉电阻连接至DVDD或另一个符合接收器件的电源正
+                              极。
+
+                              行同步输出（开漏）。视频输入行同步期间， HSYNC变为低电平。 HSYNC可以从VIN恢复，也
+HSYNC          18       -     可以在内同步模式下内部产生。通过1KΩ上拉电阻连接至DVDD或另一个符合接收器件的电源正
+                              极。
+
+                              系统复位输入。最小 RESET 脉冲宽度为1uS。 RESET 上升沿50ms后，所有SPI寄存器被复位
+    RESET      19       9     至默认值。在此期间，不能对寄存器进行读写访问。 RESET 上升沿40us后，显示存贮器全
+                              部显示单元都被复位至默认值00H。
+
+    AGND       20      10     模拟地
+
+    AVDD       21      12     模拟电源输入，接0.1uF旁路电容到AGND。
+
+     VIN       22      13     PAL或NTSC CVBS视频输入
+
+    PGND       23      11     驱动器地，在一个点联军诶至AGND
+
+    PVDD       24      14     驱动器电源输入，接0.1uF旁路电容到PGND。
+
+    SAG        25      15     电压衰减修正输入，如果不使用须连接至VOUT，参考图1b。
+
+    VOUT       26      16     视频输出
+
+
+     EP         -       -     裸焊盘。内部连接至AGND，将EP连接至AGND层以提高散热性能。不要将EP用作位移的地连接。
+
+
+
+6                                                                   AT7456E-S402-V1.1
+        杭州中科微电子有限公司
+
+
+
+
+典型工作特性：
+(VAVDD = +5V, VDVDD = +5V, VPVDD = +5V, TA = +25°C, unless otherwise noted. See the Typical Operating Circuit of Figure
+2, if applicable.)
+
+
+
+
+7                                                                                             AT7456E-S402-V1.1
+        杭州中科微电子有限公司
+
+
+
+
+典型工作特性：
+(VAVDD = +5V, VDVDD = +5V, VPVDD = +5V, TA = +25°C, unless otherwise noted. See the Typical Operating Circuit of Figure
+2, if applicable.)
+
+
+
+
+8                                                                                             AT7456E-S402-V1.1
+      杭州中科微电子有限公司
+
+
+
+
+电路功能详细说明：
+    AT7456E 单通道单色随屏显示(OSD)发生器集成了产生    括输入钳位、同步分离器、视频时序发生器、OSD 插入复用
+用户定义的 OSD 并加载到输出信号所需的全部功能。            器、非易失字符存储器、显示存储器、OSD 发生器、晶体振
+AT7456E 能够接收 NTSC 或者 PAL 复合视频信号。器件包   荡器以及读/写 OSD 数据的 SPI 兼容接口和视频驱动器等。
+9                                                       AT7456E-S402-V1.1
+       杭州中科微电子有限公司
+
+此外，AT7456E 还为系统同步提高场同步( VSYNC)、行同步                                        视频输入
+( HSYNC)和同步丢失(LOS)输出信号。时钟输出信号             AT7456E 的 VIN 可接收标准 NTSC 或者 PAL CVBS 信
+(CLKOUT)支持多个器件的菊型连接。                    号。必须用一个 0.1uF 电容对视频信号输入进行交流耦合，
+     512 个用户定义 12×18 象素字符组具有预装入，并与输     并在内部钳位。需要 0.1uF 输入耦合电容确保规定的线时间
+入视频流复合，产生带有 OSD 视频输出的 CVBS 信号。在         失真（LTD）和视频钳位稳定时间。视频钳位稳定时间随输
+NVM 中对多可以重设 512 个 12×18 象素字符。在 NTSC 制   入耦合电容同比例变化，而 LTD 随电容反比例变化。
+式中，显示 13 行×30 个字符。在 PAL 制式中，显示 16 行
+×30 个字符。没有输入视频信号时，使用 AT7456E 的内部
+视频时序发生器，仍然可以显示 OSD 图像。
+
+
+
+
+                                  图 3. 术语定义
+                              输入钳位                                 视频时序发生器
+     AT7456E 的钳位是直流重建电路，在逐行基础上，使用       视频时序发生器是数字电路，产生所有内部和外部（/HSYNC
+输入耦合电容校正输入信号的直流偏移，将 VIN 的同步头钳           和/VSYNC）时序信号。/HSYNC 和/VSYNC 可以和 VIN 同
+位在约 560mV。在 VIN 端建立的直流电平可用于片内同步         步，或在内部同步模式下独立于输入运行。视频时序发生器
+检测和视频处理功能。该电路还消除了低频噪声，例如 60Hz           能够使用同一个 27MHz 晶体产生 NTSC 或者 PAL 时序（参
+杂音或其他加入的低频噪声。                           考图 4 至图 9）
+                                                 。
+                            同步分离器                                       晶体振荡器
+     同步分离器检测视频输入的复合同步脉冲，提取出时序             内部晶体振荡器产生视频时序发生器使用的系统时钟。
+信息，产生 HSYNC和 VSYNC信号；还用于内部 OSD 同步       振荡器 使用一个 27MHz 晶体， 也可以由 CLKIN 端外 部
+和同步丢失（LOS）检测。如果在 VIN 上 32 条连续行周期        27MHz TTL 时钟驱动。外部时钟模式下，在 CLKIN 端连接
+没有探测到同步信号，LOS 变为高电平，如果探测到 32 个          一个 27MHz TTL 输入时钟，XFB 端悬空。
+       则变为低电平。在 LOS 状态期间，
+连续行同步信号，                当 VM0[5]                             外接同步复合信号选择
+＝0（视频模式 0 寄存器，第 5 位）时，只有 OSD 出现在          通过设置 VM0[7]=1，可以选择外部分离好的复合同步
+VOUT 上。此时，输入图像在 VOUT 被设置为由 VM1[6:4]     信号输入。
+确定的灰度级。表 1 列出了所有同步模式。
+
+
+
+
+10                                                            AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+
+
+11                 AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+
+
+12                 AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+
+
+13                 AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+
+
+14                 AT7456E-S402-V1.1
+       杭州中科微电子有限公司
+
+
+                  显示存储器（SRAM）                                        电压衰减修正
+显示存储器存储了 480 个字符地址，这些地址指向存储在        通过电压衰减修正能够降低输出耦合电容的电路要求和物
+NVM 字符存储器的字符。用户可以通过 SPI 兼容串口设置      理尺寸，并将线时失真降到可接受的水平。电压衰减修正对
+显示存储器的内容。显示存储器地址对应于监视器的固定地          具有对 150背向匹配电阻的同轴电缆和输出耦合电容组成
+址（参考图 10）
+        。在场消隐器件写入显示存储器，可防止 OSD      的高通滤波器进行低频补偿。该电路的截止点必须足够低至
+图像的瞬时变暗。可将/VSYNC 作为主机处理器中断，启动       能通过场同步间隔（PAL 小于 25Hz，NTSC 小于 30Hz），以
+写入显示存储器操作，以实现上述功能。                  避免场倾斜。传统上，截止点小于 5Hz，耦合电容必须非常
+                                    大，典型为大于 330uF。AT7456E 降低了该电容值，并用两
+                         字符存储器      个较小的电容（COUT 和 CSAG）替代，有效降低了耦合电容
+字符存储器是 480 行×64 字节宽非易失存储器（NVM）及     的成本和体积，同时获得了可接受的线时失真（表 2）
+                                                            。如果
+32 行×64 字节宽易失存储器（SRAM）组成，存储字符或      不使用，将 SAG 连接至 VOUT。
+者图形，在工厂中预装了图 12 所示的字符。用户可通过 SPI
+兼容串口设置字符存储器中的内容。每一行都包含一个 OSD        表 2. SAG 修正电容值
+字符的描述。每一个字符由 12 个行×18 列象素组成，每个                              LINE-TIME
+                                      COUT(μF)   CSAG(μF)
+象素点由具有三种状态的 2 位数据表示，三种状态为：白色、                               DISTORTION (% typ)
+黑色或者透明。因此，每个字符需要 54 字节的象素数据（图           470         —                0.2
+11）。                                    100         —                0.4
+NVM 需要一次读写所有字符（64 字节），通过被称为镜像           100         22               0.3
+RAM 的存储器实现。64 字节临时镜像 RAM 包含有所选字          47         47               0.3
+符（CMAH[7:0]）的所有象素数据，用作 NVM 读写操作的         22         22               0.4
+缓冲（图 13）。总是通过镜像 RAM 访问 NVM，所以需要两
+                                         10         10               0.6
+个操作步骤。向 NVM 写入字符时，用户首先利用 54 个 8
+位 SPI 写操作写入镜像 RAM，然后执行一条镜像 RAM 写命
+                                                                           串行接口
+令，类似的，读取一个字符的象素时，先将字符的象素数据
+                                    SPI 兼容串口设置工作模式和 OSD 数据。读功能支持写校验
+读入镜像 RAM，再从镜像 RAM 将所需的象素数据读至 SPI
+                                    和读取状态（STAT）、显示存储器数据输出（DMDO）和字
+端口。
+                                    符存储器输出（CMDO）寄存器。
+
+                随屏显示（OSD）发生器
+                                                                           读写操作
+OSD 发生器根据字符存储器和行亮度寄存器（RB0-RB15）
+                                    AT7456E 支持高达 10MHz 的接口时钟（SCLK）。图 15 所示
+的内容，设置每一象素的亮度。
+                                    数据写入，图 16 为从 AT7456E 读取数据。拉低 CS 使能串
+                                    口。在 SCLK 上升沿数据输入 SDIN。当 CS 变为高电平时，
+                      OSD 插入复用器
+                                    数据被锁存至输入寄存器。如果 CS 在传输中间变为高电
+OSD 插入复用器在 OSD 象素和输入视频信号之间进行选
+                                    平，则本次操作失败（即，数据没有被写入到寄存器中）。CS
+择。OSD 图像锐度由 OSD 插入复用器（OSDM）寄存器中
+                                    变为低电平后，器件等待第一个输入到 SDIN 中的字节，以
+的 OSD 上升和下降时间位以及 OSD 插入复用器开关时间位
+                                    确定所执行数据传输的类型。
+控制。该寄存器控制 OSD 图像锐度和色彩串扰/亮度串扰之
+                                    SPI 命令为 16 位长，高 8 位（MSB）代表寄存器地址，低 8
+间的均衡。减小时间设置可锐化象素，但是有可能增强色彩
+                                    位（LSB）代表数据（图 15 和图 16）。这种配置有两个例外
+串扰/亮度串扰。最优设置取决于实际应用的需求，由此，可
+                                    情况：
+由用户设置。
+                                    1）显示存储器或字符存储器访问所使用的自动递增写入模
+                                    式是一个 8 位操作（图 21）。当执行显示存储器自动递增写
+                      视频输出驱动器
+                                    入操作时，8 位地址是内部产生的，串口只需要 8 位数据。
+AT7456E 包含增益为 2 倍的视频输出驱动器。驱动器最大输
+                                    2）在 16 为工作模式时，从显示存储器读取字符数据是 24
+出摆幅为 2.4Vp-p，信号带宽高达 6MHz（衰减小于等于
+                                    位操作（8 位地址以及 16 位数据），参考图 20。
+0.2dB）。驱动器输出可驱动两个 150标准视频负载。
+
+
+15                                                          AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+
+
+                   图 11. 字符数据使用（象素映射）
+
+
+
+
+16                                      AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+
+
+17                 AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+                   DATA OUT BUS(8bit)
+
+
+
+                       输出控制电路
+
+
+
+
+                    灵敏放大器（8bit）
+
+
+
+
+                  Y selector （read only）
+
+
+
+
+                                                  X decoder
+                      EEPROM CELL
+                                                  ADD[13:5]
+
+                          OTP 域
+
+
+                                                                 Sel_otp
+
+                   WRITE/ERASE电路                  Charge Pump
+
+
+
+                                                                           ADDRESS
+              ADDRESS Latch（Y axis, 32bit）                     YAHCLR
+                                                               YALCLR
+
+
+                 Data Store Buffer (32 byte)
+
+
+
+
+                                                   Y decoder
+                                                   ADD[4:0]
+
+
+                   DATA IN BUS(8bit)
+
+
+                                     图 13 EEPROM 结构图
+
+
+
+
+18                                                                                   AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+
+
+19                 AT7456E-S402-V1.1
+      杭州中科微电子有限公司
+
+
+
+
+上电复位                              AT7456E 具有一个软件复位位（VM0[1]），当该位为高电平
+AT7456E 的上电复位电路（POR）提供一个内部复位信号，   时，显示存储器被清除，除了 OSD 黑电平寄存器（OSDBL）
+                                                                ，
+在电源电压稳定后开始工作。用户可以在上电时将 RESET      所有的寄存器复位为默认值。100us（典型值）后，可查询
+信号直接拉高。内部复位信号将所有寄存器复位至默认值，        STAT[6]确认复位过程是否完成。
+清除显示寄存器。上电复位过程需要 50ms，为避免出现不                                       硬件复位
+期望的结果，在这期间不允许进行读/写操作。一般在供电电       AT7456E 提供一个硬件复位输入（ RESET ）
+                                                            ，便于正常上电
+压稳定，并且 27MHz 时钟信号稳定后，显示寄存器复位。     期间对器件进行彻底复位，其功能和 POR 相同。当 RESET
+用户在这段时间中应避免 SPI 操作，以防止出现不期望的结     被驱动至低电平，保持 1us 以上的时间，再拉高后，所有寄
+果。用户需要查询 STAT[5]以便确认复位时序是否完成（图    存器复位至默认值，显示寄存器的所有位置被复位至默认值
+22）
+  。                               00H，用户在 50ms 之后才可以对 AT7456E 的寄存器进行读/
+                       软件复位       写操作。当 RESET 拉高后，可查询 STAT[5]确认复位序列是
+                                  否完成。 RESET 优先级高于软件复位位。
+20                                                     AT7456E-S402-V1.1
+        杭州中科微电子有限公司
+
+                        AT7456E 寄存器说明
+通过表 3 列出了所有的 SPI 寄存器来访问 AT7456E 操作，包           存储器所需的 SPI 操作步骤说明。本数据资料采用的寄存器
+括显示存储器和字符存储器访问等，通过 SPI 端口不能直接                  格式为 REGISTER_NAME[BIT_NUMBERS]。例如，视频模
+访问显示和字符存储器。请参考应用信息部分，了解对访问                     式 0 寄存器的第一位表述为 VM0[1]。
+表3 寄存器映射
+     WRITE ADDRESS   READ ADDRESS   REGISTER NAME       REGISTER DESCRIPTION                Note
+
+          00H            80H            VM0         Video Mode 0                             ①
+
+          01H            81H            VM1         Video Mode 1
+
+          02H            82H            HOS         Horizontal Offset
+
+          03H            83H            VOS         Vertical Offset
+
+          04H            84H            DMM         Display Memory Mode                      ②
+
+          05H            85H            DMAH        Display Memory Address High              ②
+
+          06H            86H            DMAL        Display Memory Address Low               ②
+
+          07H            87H            DMDI        Display Memory Data In                   ②
+
+          08H            88H            CMM         Character Memory Mode                    ③
+
+          09H            89H            CMAH        Character Memory Address High            ③
+
+         0AH             8AH            CMAL        Character Memory Address Low             ③
+
+          0BH            8BH            CMDI        Character Memory Data In                 ③
+
+          0CH            8CH            OSDM        OSD Insertion Mux
+
+          10H            90H             RB0        Row 0 Brightness
+
+          11H            91H             RB1        Row 1 Brightness
+
+          12H            92H             RB2        Row 2 Brightness
+
+          13H            93H             RB3        Row 3 Brightness
+
+          14H            94H             RB4        Row 4 Brightness
+
+          15H            95H             RB5        Row 5 Brightness
+
+          16H            96H             RB6        Row 6 Brightness
+
+          17H            97H             RB7        Row 7 Brightness
+
+          18H            98H             RB8        Row 8 Brightness
+
+          19H            99H             RB9        Row 9 Brightness
+
+         1AH             9AH            RB10        Row 10 Brightness
+
+          1BH            9BH            RB11        Row 11 Brightness
+
+          1CH            9CH            RB12        Row 12 Brightness
+
+         1DH             9DH            RB13        Row 13 Brightness
+
+          1EH            9EH            RB14        Row 14 Brightness
+
+          1FH            9FH            RB15        Row 15 Brightness
+
+          6CH            ECH           OSDBL        OSD Black Level
+
+          —              AxH            STAT        Status
+
+          —              BxH            DMDO        Display Memory Data Out                  ②
+
+          —              CxH            CMDO        Character Memory Data Out                ③
+
+X=无关
+【注 1】只有在 STAT[5]=0，DMM[2]=0 时，方可对其进行写操作，读不受限制。
+【注 2】只有在 DMM[2]=0 时，方可对其进行写操作，读不受限制。
+【注 3】需要先关闭字符显示(VM0[3]=0)，在 STAT[5]=0 后，方可对其进行写操作，读不受限制。
+
+
+21                                                                                AT7456E-S402-V1.1
+            杭州中科微电子有限公司
+
+                        视频模式寄存器（VM0）
+写地址＝00H，读地址＝80H。
+读/写访问：无限制。
+写入该寄存器时，必须满足以下条件：
+1） STAT[5]=0，字符寄存器(NVM)不忙。
+2） DMM[2]=0，显示存储器(SRAM)没有处于被清除的过程中。
+     BIT      DEFAULT                                                      FUNCTION
+
+                        复合同步信号来源
+      7          0      0 = AT7456E同步分离器分离
+                        1 = 外部输入
+
+                        Video Standard Select
+      6          0      0 = NTSC
+                        1 = PAL
+
+                        Sync Select Mode (Table 1)
+                        0x = Autosync select (external sync when LOS = 0 and internal sync when LOS = 1)
+     5, 4       00
+                        10 = External
+                        11 = Internal
+
+                        Enable Display of OSD Image
+      3          0      0 = Off
+                        1 = On
+
+                        Vertical Synchronization of On-Screen Data
+      2          0      0 = Enable on-screen display immediately
+                        1 = Enable on-screen display at the next VSYNC
+
+                        Software Reset Bit
+                        When this bit is set, all registers are set to their default values and the display memory is cleared. The user does
+
+      1          0      not need to write a 0 afterwards. SPI operations should not be performed during this time or unpredictable
+                        results may occur. This register is not accessible for writing until the display memory clear operation is finished
+                        (typically40us).
+
+                        Video Buffer Enable
+      0          0      0 = Enable
+                        1 = Disable (VOUT is high impedance)
+
+X=无关
+
+
+
+
+22                                                                                                            AT7456E-S402-V1.1
+               杭州中科微电子有限公司
+
+                            视频模式寄存器（VM1）
+写地址＝01H，读地址＝81H。
+读/写访问：无限制。
+
+
+      BIT        DEFAULT                                                      FUNCTION
+
+                            Background Mode (See Table 4) 0 = The Local Background Control bit (see DMM[5] and DMDI[7]) sets the
+                            state of each character background. 1 = Sets all displayed background pixels to gray. The gray level is specified
+       7            0
+                            by bits VM1[6:4] below. This bit overrides the local background control bit. Note:In internal sync mode, the
+                            background mode bit is set to 1.
+
+                            Background Mode Brightness (% of OSD White Level) 000 = 0%
+
+                            001 = 7%
+                            010 = 14%
+     6, 5, 4       100      011 = 21%
+                            100 = 28%
+                            101 = 35%
+                            110 = 42%
+                            111 = 49%
+
+                            Blinking Time (BT) 00 = 2 fields (33ms in NTSC mode, 40ms in PAL mode) 01 = 4 fields (67ms in NTSC
+                            mode, 80ms in PAL mode) 10 = 6 fields (100ms in NTSC mode, 120ms in PAL mode) 11 = 8 fields (133ms in
+      3, 2          01
+                            NTSC mode, 160ms in PAL mode)
+
+
+      1, 0          11      Blinking Duty Cycle (On : Off) 00 = BT : BT
+                            01 = BT : (2 x BT) 10 = BT : (3 x BT) 11 = (3 x BT) : BT
+
+
+
+
+                            水平位置寄存器（HOS）
+写地址＝02H，读地址＝82H。
+读/写访问：无限制 (图 23) 。
+
+
+      BIT        DEFAULT                                                      FUNCTION
+
+      7, 6          00      Don’t Care
+
+                            Horizontal Position Offset
+                            (OSD video is not inserted into the horizontal blanking interval)
+                            00 0000 = Farthest left (-32 pixels)
+                            *
+      5–0         10 0000   *
+                            10 0000 = No horizontal offset
+                            *
+                            *
+                            11 1111 = Farthest right (+31 pixels)
+
+
+
+
+23                                                                                                              AT7456E-S402-V1.1
+            杭州中科微电子有限公司
+
+                           垂直位置寄存器（VOS）
+写地址＝03H，读地址＝83H。
+读/写访问：无限制 (图 23) 。
+      BIT        DEFAULT                                                 FUNCTION
+
+     7, 6, 5       000        Don’t Care
+
+                              Vertical Position Offset
+                              (OSD video can be vertically shifted into the vertical blanking lines)
+                              0 0000 = Farthest up (+16 pixels)
+      4–0         1 0000      *
+                              1 0000 = No vertical offset
+                              *
+                              1 1111 = Farthest down (-15 pixels)
+
+
+
+
+                                              图 23. 字符显示区
+
+
+
+
+24                                                                                                     AT7456E-S402-V1.1
+           杭州中科微电子有限公司
+
+                    显示存储器模式寄存器（DMM）
+写地址＝04H，读地址＝84H。
+读/写访问：无限制。
+写入该寄存器时，必须满足以下条件：DMM[2]=0，显示存储器没有处于清除过程。
+
+
+           DEFAUL
+     BIT                                                                      FUNCTION
+             T
+
+                    字符存储器自动递增模式
+                    用于加快字符写入速度（主要针对SRAM存储字符部分）。与显示存储器的自动递增模式类似，设置自动递增模
+                    式后将使用当前CMAH[7:0]和CMAL[6]（对应CMAH[8]）作为512个字符的选择地址。后续通过SPI接口连续写入
+      7      0      54组8-bit数据对应要写入的字符内容，此过程中字符像素地址自动递增。完成后设置CMM寄存器写入字符存储器，
+                    该位自动清零。
+                    0 = 禁止
+                    1 = 使能
+
+                    Operation Mode Selection
+
+                    0 = 16-bit operation mode
+                     The 16-bit operation mode increases the speed at which the display memory can be updated. When writing to the display
+                    memory, the attribute byte is not entered through the SPI-compatible interface. It is entered automatically by copying
+                    DMM[5:3] to a character’s attribute byte when a new character is written, thus reducing the number of SPI write
+                    operations per character from two to one (Figure 19). When in this mode, all characters written to the display memory
+                    have the same attribute byte. This mode is useful because successive characters commonly have the same attribute. This
+                    mode is distinct from the 8-bit operation mode where a character attribute byte must be written each time a character
+      6      0
+                    address byte is written to the display memory (see Table 5). When reading data from the display memory, both the
+                    Character Address byte and Character Attribute byte are transferred with the SPI-compatible interface (Figure 18).
+
+                    1 = 8-bit operation mode
+                    The 8-bit operation mode provides maximum flexibility when writing characters to the display memory. This mode
+                    enables writing individual Character Attribute bytes for each character (see Table 5). When writing to the display memory,
+                    DMAH[1] = 0 directs the data to the Character Address byte and DMAH[1] = 1 directs the Character Attributes byte to the
+                    data. This mode is distinct from the 16-bit operation mode where the attribute bits are automatically copied from
+                    DMM[5:3] when a character is written.
+
+                    Local Background Control Bit, LBC (see Table 4)
+                    Applies to characters written in 16-bit operating mode.
+
+                    0 = Sets the background pixels of the character to the video input (VIN) when in external sync mode.
+      5      0
+                    1 = Sets the background pixels of the character to the background mode brightness level defined by VM1[6:4] in external
+                    or internal sync mode.
+                    Note:In internal sync mode, the local background control bit behaves as if it is set to 1.
+
+                    Blink Bit, BLK
+                    Applies to characters written in 16-bit operating mode.
+                    0 = Blinking off
+      4      0      1 = Blinking on
+                    Note: Blinking rate and blinking duty cycle data in the Video Mode 1 (VM1) register are used for blinking control. In
+                    external sync mode: when the character is not displayed, VIN is displayed.
+                    In internal sync mode: when the character is not displayed, background mode brightness is displayed (see VM1[6:4]).
+
+
+25                                                                                                                AT7456E-S402-V1.1
+           杭州中科微电子有限公司
+
+      3      0      Invert Bit, INV
+                    Applies to characters written in 16-bit operating mode (see Figure 24).
+                    0 = Normal (white pixels display white, black pixels display black)
+                    1 = Invert (white pixels display black, black pixels display white)
+
+
+           DEFAUL
+     BIT                                                                     FUNCTION
+             T
+
+                    Clear Display Memory
+                    0 = Inactive
+                    1 = Clear (fill all display memories with zeros)
+                    Note:This bit is automatically cleared after the operation is completed (the operation requires 40μs). The user does not
+      2      0      need to write a 0 afterwards. The status of the bit can be checked by reading this register.
+                    This operation is automatically performed:
+                    a) On power-up
+                    b) Immediately following the rising edge of RESET
+                    c) Immediately following the rising edge of CS after VM0[1] has been set to 1
+
+                    Vertical Sync Clear Valid only when clear display memory = 1, (DMM[2] = 1) 0 = Immediately applies the clear
+      1      0      display-memory command, DMM[2] = 1 1 = Applies the clear display-memory command, DMM[2] = 1, at the next
+                    VSYNC time
+
+                    Auto-Increment Mode
+                    Auto-increment mode increases the speed at which the display memory can be written by automatically incrementing the
+                    character address for each successive character written. This mode reduces the number of SPI commands, and thus the
+                    time needed to write a string of adjacent characters. This mode is useful when writing strings of characters written from
+                    left-to-right, top-to-bottom, on the display (see Table 5).
+
+                    0 = Disabled
+      0      0      1 = Enabled
+                    When this bit is enabled for the first time, data in the Display Memory Address (DMAH[0] and DMAL[7:0]) registers are
+                    used as the starting location to which the data is written. When performing the auto-increment write for the display
+                    memory, the 8-bit address is internally generated, and therefore only 8-bit data is required by the SPI-compatible interface
+                    (Figure 21). The content is to be interpreted as a Character Address byte if DMAH[1] = 0 or a Character Attribute byte if
+                    DMAH[1] = 1. This mode is disabled by writing the escape character 1111 1111. If the Clear Display Memory bit is set,
+                    this bit is reset internally.
+
+
+
+
+26                                                                                                                 AT7456E-S402-V1.1
+            杭州中科微电子有限公司
+
+
+
+
+                                               图 24. 字符属性位实例：反色和本地背景控制
+表 4. 字符背景控制
+                                                                              LOCAL BACKGROUND
+                                    BACKGROUND MODE,                                                                        CHARACTER
+          SYNC MODE                                                            CONTROL BIT, LBC
+                                              VM1[7]                                                                   BACKGROUND PIXEL
+                                                                                 DMM[5], DMDI[7]
+
+                                                   0                                       0                                  Input Video
+
+           External                                0                                       1                                      Gray
+
+                                                   1                                       X                                      Gray
+
+            Internal                               X                                       X                                      Gray
+
+X=无关
+
+
+                           显示存储器地址高位寄存器（DMAH）
+写地址＝05H，读地址＝85H。
+读/写访问：无限制。
+写入该寄存器时，必须满足以下条件：DMM[2]=0，显示存储器没有处于清除过程。
+     BIT       DEFAULT                                                             FUNCTION
+
+     7–2         0000 00      Don’t Care
+
+                              Byte Selection Bit
+                              This bit is valid only when in the 8-bit operation mode (DMM[6] = 1).
+      1                0
+                              0 = Character Address byte is written to or read (DMDI[7:0] contains the Character Address byte).
+                              1 = Character Attribute byte is written to or read (DMDI[7:0] contains the Character Attribute byte).
+
+                              Display Memory Address Bit 8
+
+      0                0      This bit is the MSB of the display-memory address. The display-memory address sets the location of a Caracter on the
+                              display (Figure10). The lower order 8 bits of the display-memory address is found in DMAL[7:0].
+
+
+
+
+27                                                                                                                      AT7456E-S402-V1.1
+           杭州中科微电子有限公司
+
+                 显示存储器地址低位寄存器（DMAL）
+写地址＝06H，读地址＝86H。
+读/写访问：无限制。
+写入该寄存器时，必须满足以下条件：DMM[2]=0，显示存储器没有处于清除过程。
+     BIT    DEFAULT                                                         FUNCTION
+
+                        Display Memory Address Bits 7–0
+     7–0    0000 0000   This byte is the lower 8 bits of the display-memory address. The display-memory address sets the location of a
+                        character on the display (Figure 10). The MSB of the display-memory address is DMAH[0].
+
+
+
+                 显示存储器数据输入寄存器（DMDI）
+写地址＝07H，读地址＝87H。
+读/写访问：无限制。
+写入该寄存器时，必须满足以下条件：DMM[2]=0，显示存储器没有处于清除过程。
+     BIT    DEFAULT                                                          FUNCTION
+
+                        Character Address or Character Attribute byte to be stored in the display memory.
+                        8-Bit Operation Mode (DMM[6] = 1)
+                        If DMAH[1] = 0, the content is to be interpreted as a Character Address byte, where
+                          Bits 7–0 = Character Address bits, CA[7:0] (Figure 12).
+                        If DMAH[1] = 1, the content is to be interpreted as a Character Attribute byte where
+                          Bit 7 = Local Background Control bit, LBC (Figure 24 and Table 4)
+                          Bit 6 = Blink bit, BLK
+                          Bit 5 = Invert bit, INV (see Figure 24)
+
+     7–0    0000 0000     Bit 4 = Character Address bits，CA[8]
+                          Bit 3–0 = 0
+                        (The LBC, BLK, and INV bits are described in the Display Memory Mode register.)
+                        16-Bit Operation Mode (DMM[6] = 0)
+                        The content is always interpreted as a Character Address byte where bits 7–0 = CA[7:0] (Figure 12).
+
+                        Auto-Increment Mode (DMM[0] = 1)
+                        The character address CA[7:0] = FFH is reserved for use as an escape character that terminates the auto-increment
+                        mode. Therefore, the character located at address FFH is not available for writing to the display memory when in
+                        auto-increment mode. In all other modes, character FFH is available.
+
+
+
+
+                 字符存储器模式寄存器（CMM）
+写地址＝08H，读地址＝88H。
+读/写访问：无限制。
+写入该寄存器时，必须满足以下条件：
+1） STAT[5]=0，字符寄存器(NVM)不忙。
+2） VM0[3]=0，OSD 被禁止。
+
+
+28                                                                                                               AT7456E-S402-V1.1
+           杭州中科微电子有限公司
+
+     BIT    DEFAULT                                                           FUNCTION
+
+                        Only whole characters (54 bytes) can be written to or read from the nonvolatile character memory (NVM) at one time.
+                        This is done through the (64 byte) shadow RAM (Figure 13). The shadow RAM is accessed through the SPI port one
+                        byte at a time. The shadow RAM is written to and read from NVM by the following procedures:
+
+                        Writing to NVM
+                        1010 XXXX = Write to NVM array from shadow RAM.
+                        The 64 bytes from shadow RAM are written to the NVM array at the character-memory address location (CMAH,
+                        CMAL) (Figure 13). The character memory is busy for approximately5ms during this operation. During this time,
+                        STAT[5] is automatically set to 1. The Character Memory Mode register is cleared and STAT[5] is reset to 0 after the
+                        write operation has been completed. The user does not need to write zeros afterwards.
+
+                        Reading from NVM
+                        0101 XXXX = Read from NVM array into shadow RAM.
+     7–0    0000 0000   The 64 bytes corresponding to the character-memory address (CMAH, CMAL) are read from the NVM array into the
+                        shadow RAM (Figure 13). The character memory is busy for approximately 30us during this operation. The CMM
+                        register is cleared after the operation is completed. The user does not need to write zeros afterwards. During this time,
+                        STAT[5] is automatically set to 1. STAT[5] is reset to 0 when the read operation has been complete.
+
+                        If the display has been enabled (VM0[3] = 1) or the character memory is busy (STAT[5] = 1), NVM read/write
+                        operation commands are ignored and the corresponding registers are not updated. However, all the registers can be
+                        read at any time.
+
+                        For all the character-memory operations, the character address is formed with Character Memory Address High
+                        (CMAH[7:0]) and Character Memory Address Low (CMAL[7:0]) register bits (Figures 11, 12, and 13).
+
+
+
+
+X=无关
+
+
+                 字符存储器地址高位寄存器（CMAH）
+写地址＝09H，读地址＝89H。
+读/写访问：无限制。
+写入该寄存器时，必须满足以下条件：
+1） STAT[5]=0，字符寄存器(NVM)不忙。
+2） VM0[3]=0，OSD 被禁止。
+     BIT    DEFAULT                                                           FUNCTION
+
+                         Character Memory Address Bits
+     7–0    0000 0000    These 8 bits & CMAL[6]point to a character in the character memory (512 characters total in NVM) (Figures 10
+                         and 12).
+
+
+
+                 字符存储器地址低位寄存器（CMAL）
+写地址＝0AH，读地址＝8AH。
+读/写访问：无限制。
+写入该寄存器时，必须满足以下条件：
+1） STAT[5]=0，字符寄存器(NVM)不忙。
+2） VM0[3]=0，OSD 被禁止。
+
+
+29                                                                                                                 AT7456E-S402-V1.1
+               杭州中科微电子有限公司
+
+      BIT        DEFAULT                                                      FUNCTION
+
+       7,           0       Don’t Care
+
+                            Character Memory Address Bits
+                            Bit CA9: used as CA[8]
+       6            0
+                            This bit & CMAH point to a character in the character memory (512 characters total in NVM) (Figures 10
+                            and 12).
+
+                            Character Memory Address Bits
+      5–0         00 0000   These 6 bits point to one of the 64 bytes (only 54 used) that represent a 4-pixel group in the character (Figures
+                            10 and 11).
+
+
+
+                  字符存储器数据输入寄存器（CMDI）
+写地址＝0BH，读地址＝8BH。
+读/写访问：无限制。
+写入该寄存器时，必须满足以下条件：
+1） STAT[5]=0，字符寄存器(NVM)不忙。
+2） VM0[3]=0，OSD 被禁止。
+     BIT         DEFAULT                                                      FUNCTION
+
+      7, 6         NA       Leftmost pixel.       00 = Black, 10 = White, 01 or 11 = Transparent (see Figure 11)
+
+      5, 4         NA       Left center pixel.    00 = Black, 10 = White, 01 or 11 = Transparent (see Figure 11)
+
+      3, 2         NA       Right center pixel.   00 = Black, 10 = White, 01 or 11 = Transparent (see Figure 11)
+
+      1, 0         NA       Rightmost pixel.      00 = Black, 10 = White, 01 or 11 = Transparent (see Figure 11)
+
+NA=不适用
+
+
+                  OSD 插入复用寄存器（OSDM）
+写地址＝0CH，读地址＝8CH。
+读/写访问：无限制。
+      BIT        DEFAULT                                                      FUNCTION
+
+      7, 6          00      Don’t Care
+
+                            OSD Rise and Fall Time—typical transition times between adjacent OSD pixels
+                            000: 20ns (maximum sharpness/maximum cross color artifacts )
+                            001: 30ns
+     5, 4, 3        011     010: 35ns
+                            011: 60ns
+                            100: 80ns
+                            101: 110ns (minimum sharpness/minimum cross color artifacts)
+
+                            OSD Insertion Mux Switching Time–typical transition times between input video and OSD pixels
+                            000: 30ns (maximum sharpness/maximum cross color artifacts )
+                            001: 35ns
+     2, 1, 0        011     010: 50ns
+                            011: 75ns
+                            100: 100ns
+                            101: 120ns (minimum sharpness/minimum cross color artifacts)
+
+
+
+
+30                                                                                                               AT7456E-S402-V1.1
+            杭州中科微电子有限公司
+
+               第N行亮度寄存器（RB0-RB15）
+地址＝10H+行号，写地址＝10H 至 1FH，读地址＝90H 至 9FH。
+读/写访问：无限制。
+第一行的行号为 0，最好一行的行号在 NTSC 制式中为 13，在 PAL 制式中为 15（请参考图 23）
+                                                     。
+     BIT      DEFAULT                                                    FUNCTION
+
+     7–4        0000    Don’t Care
+
+                        Character Black Level —All the characters in row N use these brightness levels for the black pixel, in % of
+                        OSD white level.
+                        00 = 0%
+     3, 2        00
+                        01 = 10%
+                        10 = 20%
+                        11 = 30%
+
+                        Character White Level —All the characters in row N use these brightness levels for the white pixel, in % of
+                        OSD white level.
+                        00 = 120%
+     1, 0        01
+                        01 = 100%
+                        10 = 90%
+                        11 = 80%
+
+
+
+
+               OSD黑电平寄存器（OSDBL）
+写地址＝6CH，读地址＝ECH。
+读/写访问：该寄存器含有 4 个工厂预设的位[3：0]，不能对其进行修改。因此，修改第 4 位时，首先读取该寄存器，修改第
+4 位，然后写回更新后的字节。
+     BIT      DEFAULT                                                    FUNCTION
+
+     7–5        000     Don’t Care
+
+                        OSD Image Black Level Control
+                        This bit enables the alignment of the OSD image black level with the input image black level at
+      4          1      VOUT. Always enable this bit following power-on reset to ensure the correct OSD image brightness.
+                        0 = Enable automatic OSD black level control
+                        1 = Disable automatic OSD black level control
+
+                        These bits are factory preset. To ensure proper operation of the AT7456E, do not change the values of these
+     0–3        xxxx
+                        bits.
+
+Xxxx＝工厂预设——可能是16个值的任意一个。这一数值被永久存储在AT7456E中，上电复位或硬件复位后，总是被恢复为工厂预设值。
+
+
+
+
+31                                                                                                        AT7456E-S402-V1.1
+           杭州中科微电子有限公司
+
+              状态寄存器（STAT）
+读地址＝AxH。
+读/写访问：只读。
+     BIT     DEFAULT                                                    FUNCTION
+
+      7        NA      Don’t Care
+
+                       Reset Mode
+      6        NA      0 = Clear w hen power- up reset mode is comp lete. Occurs 50ms (typ) following stable VD D ( F.22)
+                       1 = S et when in power- up r eset m ode
+
+                       Character Memory Status
+      5        NA      0 = Available to be written to or read from
+                       1 = Unavailable to be written to or read from
+
+                       VSYNCOutput Level
+      4        NA      0 = Active during vertical sync time
+                       1 = Inactive otherwise
+
+                       HSYNCOutput Level
+      3        NA      0 = Active during horizontal sync time
+                       1 = Inactive otherwise
+
+                       Loss-of-Sync (LOS)
+      2        NA      0 = Sync Active. Asserted after 32 consecutive input video lines.
+                       1 = No Sync. Asserted after 32 consecutive missing input video lines.
+
+                       0 = NTSC signal is not detected at VIN
+      1        NA
+                       1 = NTSC signal is detected at VIN
+
+                       0 = PAL signal is not detected at VIN
+      0        NA
+                       1 = PAL signal is detected at VIN
+
+NA＝不适用。
+X＝无关。
+
+
+
+
+32                                                                                                     AT7456E-S402-V1.1
+            杭州中科微电子有限公司
+
+               显示存储器数据输出寄存器（DMDO）
+读地址＝BxH。
+读/写访问：只读。
+写入该寄存器时，必须满足以下条件：DMM[2]=0，显示存储器没有处于清除过程。
+     BIT      DEFAULT                                                    FUNCTION
+
+                        Character Address or Character Attribute byte to be read from the display memory.
+
+                        8-Bit Operation Mode (DMM[6] = 1):
+                        If DMAH[1] = 0, the content is to be interpreted as a Character Address byte, where
+                           Bits 7–0 = Character Address bits, CA[7:0] (Figure 12)
+                        If DMAH[1] = 1, the content is to be interpreted as a Character Attribute byte where
+                           Bit 7 = Local Background Control bit, LBC (see Figure 24 and Table 4)
+                           Bit 6 = Blink bit, BLK
+                          Bit 5 = Invert bit, INV (see Figure 24)
+                           Bit 4 = Character Address bits，CA[8]
+                           Bit 3–0 = 0
+                           The LBC, BLK, and INV bits are described in the Display Memory Mode register.
+     7–0        NA
+                        16-Bit Operation Mode (DMM[6] = 0):
+                        The content is to be interpreted as a Character Address byte, where
+                           Bits 7–0 = CA[7:0] (see Figure 12)
+
+                        followed by a Character Attribute byte, where
+                           Bit 7 = 0
+                           Bit 6 = Local Background Control bit, LBC (see Figure 24 and Table 4)
+                           Bit 5 = Blink bit, BLK
+                           Bit 4 = Invert bit, INV (see Figure 24)
+                           Bit 3 = Character Address bits，CA[8]
+                           Bit 2–0 = 0
+                           The LBC, BLK, and INV bits are described in the Display Memory Mode register.
+
+NA＝不适用。
+X＝无关。
+
+
+               字符存储器数据输出寄存器（CMDO）
+读地址＝CxH。
+读/写访问：只读。
+写入该寄存器时，必须满足以下条件：
+1） STAT[5]=0，字符寄存器(NVM)不忙。
+2） VM0[3]=0，OSD 被禁止。
+     BIT      DEFAULT                                                    FUNCTION
+
+     7, 6       NA      Leftmost pixel.      00 = Black, 10 = White, 01 or 11 = Transparent (see Figure 11)
+
+     5, 4       NA      Left center pixel.   00 = Black, 10 = White, 01 or 11 = Transparent (see Figure 11)
+
+     3, 2       NA      Right center pixel. 00 = Black, 10 = White, 01 or 11 = Transparent (see Figure 11)
+
+     1, 0       NA      Rightmost pixel.     00 = Black, 10 = White, 01 or 11 = Transparent (see Figure 11)
+
+NA＝不适用。
+X＝无关。
+
+
+33                                                                                                        AT7456E-S402-V1.1
+       杭州中科微电子有限公司
+
+                              应用信息          3)    写入 CMM[7:0]＝0101xxxx，将字符数据从 NVM 读入
+                          字符存储器操作                 到镜像 RAM 中（图 13），该过程需要 30us，应用时要
+ 一次只能从 NVM 字符存储器写入或者读取全部字符（54                     特别注意。
+        。这可以通过（64 字节）镜像 RAM 实
+个字节的象素数据）                                   4)    写入 CMAL[7:0]＝xxH，选择要修改的字符中的 4 个象
+现（请参考图 13）
+         。通过 SPI 端口，每次访问镜像 RAM 的                  素字节（0-63）（图 10 和图 13）。CMAL[6]作为 CA[8]
+一个字节。通过一条 SPI 命令从 NVM 写入或者读取镜像                    选择要写入的字符块（0-255）
+                                                                 （256-511）
+                                                                         。
+RAM。                                        5)    读取 CMDO[7:0]＝xxH，读取要修改的 4 个象素数据字
+         向 NVM 字符存储器写入字符字节的步骤                     节（图 11 和图 13）
+                                                              。
+写入一个新字符：                                    6)    根据要求修改 4 象素字节。
+1)   写入 VM0[3]＝0，禁止 OSD 图像显示，延时 30us 才能     7)    写入 CMDI[7:0]＝xxH，将修改后的 4 象素数据字节写
+     做后续操作。                                       回到镜像 RAM 中（图 11 和图 13）
+                                                                       。
+2)   写入 CMAH[7:0]＝xxH，选择要写入的字符（0-255）       8)    根据需要重复步骤 4 到步骤 7，期间 CMAL[6]的值要
+     （图 10 和图 13）。                                保持一致，直到所有的象素装入到镜像 RAM 中。
+3)   写入 CMAL[7:0]＝xxH，选择要写入的字符中的 4 个象       9)    写入 CMM[7:0]＝1010xxxx，将镜像 RAM 数据写入到
+     素字节（0-63）（图 10 和图 13）
+                         。CMAL[6]作为 CA[8]         NVM 中（图 13）
+                                                            。在这一操作过程中，字符存储器忙
+     选择要写入的字符块（0-255）
+                    （256-511）
+                            。                     的时间典型为 5ms。可以读取 STAT[5]确认 NVM 写过
+4)   写入 CMDI[7:0]＝xxH，设置字符所选部分的象素值
+                                 （图               程是否完成。
+     11 和图 13）
+             。                              10)   写入 VM0[3]＝1，使能 OSD 图像显示。
+5)   重复步骤 3 和步骤 4，期间 CMAL[6]的值要保持一致，                         从字符存储器读取字符字节的步骤
+     直到字符数据的所有 54 个字节被装入到镜像 RAM 中。          1)    写入 VM0[3]＝0，禁止 OSD 图像显示，延时 30us 才能
+6)   写入 CMM[7:0]＝1010xxxx，从镜像 RAM 写入到 NVM         做后续操作。
+     阵列中（图 13）。在这一操作过程中，字符存储器忙时             2)    写入 CMAH[7:0]＝xxH，CMAL[6]=xH 选择要读取的
+     间大约为 5ms。可以通过读取 STAT[5]的状态来确认                字符（0-511）（图 10 和图 13）。
+     NVM 写过程是否完成。                           3)    写入 CMM[7:0]＝0101xxxx，将字符数据从 NVM 读入
+写入 VM0[3]＝1，使能 OSD 图像显示。                          到镜像 RAM 中（图 13）该过程需要 30us，应用时要
+自动递增模式写入一个新字符：                                    特别注意。
+1)   写入 VM0[3]＝0，禁止 OSD 图像显示，延时 30us 才能     4)    写入 CMAL[7:0]＝xxH，选择要读取的字符中的 4 个象
+     做后续操作。                                       素字节（0-63）（图 10 和图 13）。
+2)   写入 CMAH[7:0]＝xxH，CMAL[6]=xH 选择要写入的     5)    读取 CMDO[7:0]＝xxH，读取数据所选的 4 个象素字节
+     字符（0-511）（图 10 和图 13）
+                         。                        （图 11 和图 13）
+                                                             。
+3)   写入 DMM[7]＝1，设置自动递增模式。                  6)    重复步骤 4 和步骤 5，读取 4 象素数据的其他字节。
+4)   按字符象素顺序写入数据，此为单字节操作。自动递                7)    写入 VM0[3]＝1，使能 OSD 图像显示。
+     增模式下，自动设置 CMDI[7:0]的地址。写入操作之后，                                    显示存储器操作
+     字符存储器地址自动递增，直到字符数据的所有 54 个             以下两个步骤支持对 OSD 图像的查看，读写显示存储器时
+     字节被装入到镜像 RAM 中。                        不需要这些步骤：
+5)   写入 CMM[7:0]＝1010xxxx，从镜像 RAM 写入到 NVM   1） 写入 VM0[3]＝1，使能 OSD 图像显示，延时 10us 才能
+     阵列中（图 13）。在这一操作过程中，字符存储器忙时                   做后续操作。
+     间大约为 5ms。可以通过读取 STAT[5]的状态来确认          2） 写入 OSDBL[4]＝0，使能自动 OSD 黑电平控制。这保
+     NVM 写过程是否完成。                                 证了正确的 OSD 图像亮度。该寄存器含有 4 个工厂预
+6)   写入 VM0[3]＝1，使能 OSD 图像显示。                     设的位[3:0]，不能修改这些位。因此，修改第 4 位时，
+修改已有的字符：                                          首先读取 OSDBL[7:0]，修改第 4 位，然后写回更新后
+1)   写入 VM0[3]＝0，禁止 OSD 图像显示，延时 30us 才能           的字节。
+     做后续操作。                                                         清除显示存储器步骤
+2)   写入 CMAH[7:0]＝xxH，选择要修改的字符（0-255）       写入 DMM[2]＝1，以启动清除显示存储器操作，这一操作
+     （图 10 和图 13）。                          一般需要 40us。在清除操作完成之前，不能再次写入显示存
+                                            储器模式寄存器。操作完成后，DMM[2]被自动复位至零。
+34                                                                   AT7456E-S402-V1.1
+          杭州中科微电子有限公司
+
+              8 位模式下，写入显示存储器的步骤          4)   将要写入显示存储器的字符地址字节（CA[7:0]）写入
+向显示存储器写入字符时，8 位工作模式最灵活。这一模式                   到 DMDI[7:0]中。一并存储这些字节和来自 DMM[5:3]
+支持位每一个字符写入单独的字符属性字节（请参考表 5）。                  的字符属性字节（图 12 和图 19）
+                                                                。
+这一模式不同于 16 位工作模式，在 16 位工作模式下，但写                  在自动递增模式中，写入显示存储器的步骤
+入一个字符时，从 DMM[5:3]自动复制其字符属性字节（图           自动递增模式自动递增每一连续写入字符的字符地址，从而
+19）
+  。                                      提高了写入显示存储器的速度。在显示器上从左至右，从上
+写入 DMM[6]＝1，选择 8 位工作模式。                  至下写字符串时，可采用该模式。这一模式减少了 SPI 命令
+向显示存储器写入字符地址字节：                          的数量（请参考表 5）
+                                                   。自动递增模式时不支持 CA9 bit 的设
+1） 写入 DMAH[1]＝1，以写入字符地址最高位。              置，写入时请保持 CA9 对应 bit 为 0。因此显示存储器里写
+2） 写入 DMAH[0]＝x，以选择 MSB，写入 DMAL[7:0]＝    入的字符地址只能访问 0-255。
+     xxH，以选择要写入字符数据地址的低位数据。该地址           8 位工作模式时：
+     确定了字符在显示器上的位置（图 10）
+                       。                 1)   写入 DMAH[1]＝0，选择是否写入字符地址字节；写入
+     3）   将要写入显示存储器的字符地址最高位 CA9 写入            DMAH[1]＝1，选择是否写入字符属性字节。
+     到 DMDI[7:0]中（请参考图 10 和图 19）。        2)   自动递增模式下，写入 DMAH[0]＝X，选择起始地址
+4） 写入 DMAH[1]＝0，以写入字符地址字节。DMAH[0]             的 MSB，写入 DMAL[7:0]＝XX，选择起始地址的低位
+     和 DMAL[7:0]保持不变。                         地址数据。该地址确定了首个字符在显示器上的位置
+5） 将要写入显示存储器的字符地址字节（CA[7:0]）写入                （请参考图 10 和图 21）
+                                                            。
+     到 DMDI[7:0]中（请参考图 10、图 12 和图 19）。   3)   写入 DMM[0]＝1，设置自动递增模式。
+向显示存储器写入字符属性字节：                          4)   写入 DMM[6]＝1，选择 8 位工作模式。
+1） 写入 DMAH[1]＝1，以写入字符属性字节。               5)   按特定字符顺序写入 CA 数据，将文本显示在屏幕上，
+2） 写入 DMAH[0]＝x，以选择 MSB，写入 DMAL[7:0]＝                        自动设置 DMDI[7:0]
+                                              此为单字节操作。自动递增模式下，
+     xxH，以选择要写入字符数据地址的低位数据。该地址                的地址。写入操作之后，显示存储器地址自动递增，
+     确定了字符在显示器上的位置（图 10）
+                       。                      直至显示存储器地址末尾。
+3） 将要写入显示存储器的字符属性字节写入到 DMDI[7:0]         6)   写入 CA＝FFh，结束自动递增模式。
+     中（请参考图 10 和图 19）。                   注意：在自动递增模式下，不能使用存储在 CA[7:0]＝FFh
+                                         的字符，自动递增模式结束之前，读操作无效。
+            在 16 位模式下，写入显示存储器的步骤         16 位工作模式时：
+16 位工作模式提高了显示存储器的刷新率，这是因为，写入             1)   自动递增模式下，写入 DMAH[0]＝X，选择起始地址
+一个新字符时，将 DMM[5:3]自动复制到字符属性字节，从                的 MSB；写入 DMAL[7:0]＝XX，选择起始地址的低位
+而把每个字符 SPI 写操作的次数由两次降到一次（图 19）
+                             。                地址数据。该地址确定首个字符在显示器上的位置（请
+在这一模式下，所有写入显示存储器的字符都有相同的属性                    参考图 10 和图 21）
+                                                          。
+字节。该模式很有用，因为连续字符通常有相同的属性。该               2)   写入 DMM[0]＝1，设置自动递增模式。
+模式不同于 8 位工作模式，8 位工作模式下，但字符地址字            3)   写入 DMM[6]＝0，选择 16 位工作模式。
+节每次写入到显示存储器时，必须写入字符属性字节（请参               4)   写入 DMM[5:3]＝XXX，设置将应用于所有字符的本地
+考表 5）。16 位工作模式时不支持 CA9 bit 的设置，因此显示           背景控制（LBC），闪烁（BLK）和反色（INV）属性
+存储器里写入的字符地址只能访问 0-255。                        位，在 16 位工作模式时，这些设置将应用于写入到显
+1)   写入 DMM[6]＝0，选择 16 位工作模式。                 示存储器的所有字符上。
+2)   写入 DMM[5:3]＝xxx，设置本地背景控制（LBC），闪     5)   按特定字符顺序写入 CA 数据，将文本显示在屏幕上。
+     烁（BLK）和反色（INV）属性位，在 16 位工作模式             这些将同来自 DMM[5:3]的字符属性字节一并存储，请
+     时，这些设置将应用于写入到显示存储器的所有字符                  参考图 19。此为单字节操作。自动递增模式下，自动
+     上。                                       设置 DMDI[7:0]的地址。写操作之后，显示存储器地址
+3)   写入 DMAH[0]＝x，选择要写入字符数据地址的 MSB，           自动递增，直至显示存储器地址末尾。
+     写入 DMAL[7:0]＝xxH，选择低位地址。该地址确定了      6)   写入 CA＝FFh，结束自动递增模式。
+     字符在显示器上的位置（请参考图 10）
+                       。                 注意：在自动递增模式下，不能使用存储在 CA[7:0]＝FFh
+                                         的字符，自动递增模式结束之前，读操作无效。
+                                                       8 位模式下，读取显示存储器的步骤
+35                                                              AT7456E-S402-V1.1
+           杭州中科微电子有限公司
+
+1)     写入 DMM[6]＝1，选择 8 位工作模式。                                   器（DMDO）部分和图 20，了解读取操作时对属性位
+2)     写入 DMAH[1]＝0，读取字符地址字节；或者写入                                中位排列说明。
+       DMAH[1]＝1，读取字符属性字节。                                   注意：如果内部显示存储器读操作请求和 SPI 显示存储操作
+3)     写入 DMAH[0]，选择需要读取数据的地址 MSB（图                          同时发生，则忽略内部读操作请求，在这段时间内，字符显
+       10）
+         。                                                   示可能会瞬时变暗。请参考同步 OSD 更新部分。
+4)     写入 DMAL[7:0]，选择需要读取数据地址的 MSB 以外                                                              同步 OSD 更新
+       的低位数据（图 10）
+                 。                                           如果内部显示存储器读操作请求和 SPI 显示存储操作同时发
+5)     读取 DMDO[7:0]，从显示存储器中的所选位置读取数                          生，字符显示可能会瞬时变暗。在场消隐间隔期间写入显示
+       据（图 10）
+             。                                               存储器可以防止 OSD 图像瞬时变暗。使用 VSYNC 作为主机
+                      16 位模式下，读取显示存储器的步骤                     处理器中断，启动向显示存储器进行写操作以实现这一功
+1)     写入 DMM[6]＝0，选择 16 位工作模式。                              能。或者，在写入显示存储器之前，可同步禁止 OSD 图像，
+2)     写入 DMAH[0]＝x，选择要读取字符数据地址的 MSB                         写入之后在同步使能（请参考 VM0[3:2]）
+                                                                                   。
+       写入 DMAL[7:0]＝xxH，选择需地址的低位数据。该地                                                  具有公共时钟的多个 OSD
+       址确定了字符在显示器上的位置（请参考图 10）
+                             。                               AT7456E 提高一个 TTL 时钟输出（CLKOUT），可驱动另一
+3)     读取 DMDO[15:0]，从显示存储器中所选位置读取字符                         个 AT7456E 的 CLKIN 管脚。使用外部时钟驱动器可驱动两
+       地址字节和字符属性字节。第一个数据字节时字符地                               个或者多个 AT7456E 元件，这种安排可通过一片带有晶振
+                ，第二个字节包含字符属性位（图 20）
+       址（CA[7:0]）                 。                          的 AT7456E 元件提供时钟信号，降低系统成本（图 25）
+                                                                                           。
+       注意，读取操作时，字符属性字节的位排列不同于写
+       入操作时的位排列。请参考显示存储器数据输出寄存
+
+
+                     AUTO-INCREMEN
+                                                                           AUTO-INCREMEN
+     OPERATING             T MODE             No. OF READ   No. OF WRITE                            No. OF WRITE
+                                                                           T MODE ENABLED
+       MODE               DISABLED           OPERATIONS      OPERATIONS                             OPERATIONS
+                                                                              DMM[0] = 1
+                          DMM[0] = 0
+
+     16-Bit Mode       One-time setup               2             1          One-time setup               6
+     DMM[6] = 0           Per character             3             3           Per character               1
+
+      8-Bit Mode       One-time setup               1             1          One-time setup               6
+     DMM[6] = 1           Per character             6             6           Per character               1
+
+表 5. 显示存储器访问模式和 SPI 操作
+各操作命令的实际执行时间对照表
+                   控制命令                   动作是否完成的判断依据       MAX7456(min)    AT7456E(min)            AT7456E(typical)③
+                    nRESET = 1
+上电复位                                         STAT[6] = 0          39ms             39ms                   50ms
+                        ①
+                    nRESET = 0
+硬件复位                nRESET = 1               STAT[5] = 0          39ms             39ms                   50ms
+                        ②
+软件复位                VM0[1] = 1               DMM[2] = 0           9us              28us                    40us
+
+清除显存                DMM[2] = 1               DMM[2] = 0           9us              28us                    40us
+关闭字符显示              VM0[3] = 0               STAT[5] = 0          0us            0 ~ 18us                  30us
+打开字符显示              VM0[3] = 1               STAT[5] = 0          0us             0 ~ 4us                  10us
+写字库                 CMM = 0xa0               STAT[5] = 0          10ms           3.4/4.2ms                 5ms
+
+读字库                 CMM = 0x50               STAT[5] = 0          0.5us            22us                    30us
+
+【注 1】 在上电期间 nRESET 保持高电平。
+【注 2】 电源稳定后对 nRESET 的控制，首先将 nRESET 拉低，维持 1us 以后再拉高。
+【注 3】 用户使用时，如果采用固定延时的方法，其延时参数请参照 typical 值进行设计。
+
+36                                                                                            AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+
+
+               图 25. 典型的具有菊形链接时钟的多个 OSD(仅 AT7456E)
+
+
+
+
+37                                                   AT7456E-S402-V1.1
+     杭州中科微电子有限公司
+
+
+                   封装信息
+                          HTSSOP28
+
+
+
+
+                           LGA16
+
+
+
+
+38                                   AT7456E-S402-V1.1
+
