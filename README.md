@@ -1,16 +1,16 @@
 # F405 Flight Controller
 
-I worked on this flight controller as a fun and challenging personal project. I plan to build a drone with it in the future!
+This is a flight controller I designed as a side project. It was fun and pretty challenging, and I'm planning to build a drone with it at some point!
 
 <img src="docs/img/hero_top.png" width="560" alt="Top view of the flight controller design">
 
 ## The design
 
-I used KiCad and Python scripts to put together the schematic and board layout, check the connections, and export the files for manufacturing.
+I did the schematic and layout in KiCad, and wrote some Python scripts to check the connections and spit out the manufacturing files.
 
-The main controller reads the motion sensors and sends signals to the motor controllers. The board also handles power for its electronics and has connections for a receiver, GPS, and camera.
+It's built around an STM32F405. It reads the gyro and barometer and sends signals out to the ESCs. It also has its own power regulators and plugs for a receiver, GPS, and camera.
 
-It hasn't been manufactured, assembled, or flown yet, so there's still building and testing ahead.
+I haven't gotten it made or flown yet, so there's still a lot of building and testing to do. If you want to order one, here's [how I'd do it](HOW_TO_ORDER.md).
 
 <table>
 <tr>
@@ -23,6 +23,6 @@ It hasn't been manufactured, assembled, or flown yet, so there's still building 
 </tr>
 </table>
 
-The design files are in [hardware/](hardware/), and the manufacturing files are in [production/](production/).
+Design files are in [hardware/](hardware/) and the manufacturing stuff is in [production/](production/).
 
 Licensed under [CERN-OHL-P-2.0](LICENSE).
