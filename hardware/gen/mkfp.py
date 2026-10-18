@@ -45,14 +45,16 @@ made = []
 # ---------------------------------------------------------- ICM-42688-P LGA-14
 # TDK DS-000347 Rev 1.2 p.54-55: D 2.5 (Y) x E 3.0 (X), e 0.5, W 0.25, L 0.475,
 # side columns at x = +-1.1625, top/bottom rows at y = +-0.9125, D1 1.5, E1 1.0.
+# Pin order from Fig. 4 (top view, KiCad y points down): 1 top-left, 1-4 down the left,
+# 5-7 along the bottom, 8-11 up the right, 12-14 along the top.
 b = []
 PW, PL = 0.30, 0.55                      # lead 0.25 x 0.475 + solder fillet allowance
 for i, n in enumerate(["1","2","3","4"]):            # left column, top -> bottom
-    b.append(pad(n, -1.1625, 0.75 - 0.5*i, PL, PW))
+    b.append(pad(n, -1.1625, -0.75 + 0.5*i, PL, PW))
 for i, n in enumerate(["5","6","7"]):                # bottom row, left -> right
     b.append(pad(n, -0.5 + 0.5*i, 0.9125, PW, PL))
 for i, n in enumerate(["8","9","10","11"]):          # right column, bottom -> top
-    b.append(pad(n, 1.1625, -0.75 + 0.5*i, PL, PW))
+    b.append(pad(n, 1.1625, 0.75 - 0.5*i, PL, PW))
 for i, n in enumerate(["12","13","14"]):             # top row, right -> left
     b.append(pad(n, 0.5 - 0.5*i, -0.9125, PW, PL))
 b += [rect(1.5, 1.25, "F.Fab"), rect(1.75, 1.5, "F.CrtYd"),
