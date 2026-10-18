@@ -1,6 +1,6 @@
 # F405 Flight Controller
 
-I worked on this flight controller as a fun and challenging personal project. I plan to build a drone with it in the future.
+I worked on this flight controller as a fun and challenging personal project. I plan to build a drone with it in the future!
 
 <img src="docs/img/hero_top.png" width="560" alt="Top view of the flight controller design">
 
