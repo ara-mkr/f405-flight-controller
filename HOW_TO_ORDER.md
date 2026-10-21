@@ -1,6 +1,6 @@
 # How to order the board
 
-pretty easy, you can use PCBWay or JLCPCB, whichever one you like.
+pretty easy, you can use PCBWay or JLCPCB, whichever one you prefer
 
 1. sign into [PCBWay](https://www.pcbway.com) or [JLCPCB](https://jlcpcb.com)
 2. upload this [gerber file](production/fc_f405_gerbers.zip)
